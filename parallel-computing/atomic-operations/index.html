@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Atomic operations</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname !== 'localhost' && !window.location.hostname.endsWith('github.dev')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/"><span
+                            class="toc-current">Atomic operations</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="lock">
+  <h2>3.5. Atomic operations</h2>
+</div>
+
+<p>Using <code>+=</code> across multiple threads can produce incorrect results due to the race condition, as introduced in <a href="../../parallel-computing/race-condition/#race-condition-sec">Race condition</a>. For your
+convenience, we repeat the example that explains the bug here.</p>
+<div class="listingblock" id="code-race-condition-again">
+    <div class="title">Code 9. Race condition example with two threads.</div>
+    <div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initial value</span>
+<span class="n">temp1</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Thread 1 Read</span>
+<span class="n">temp1</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Thread 1 Compute, temp1 is 1.</span>
+<span class="n">temp2</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Thread 2 Read</span>
+<span class="n">temp2</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Thread 2 Compute, temp2 is 1.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">temp1</span>  <span class="c1"># Thread 1 Write back, x is now 1.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">temp2</span>  <span class="c1"># Thread 2 Write back, x is still 1.</span>
+</code></pre></div>
+</div>
+
+<p>The root cause is that the read-modify-write steps of <code>x += 1</code> are three
+separate instructions that can be interrupted and interleaved by other threads.
+What we need is to make these steps <strong>atomic</strong>, meaning they are treated as a
+single indivisible unit that no other thread can interrupt. The tool we use to
+achieve this is a <strong>lock</strong>. You may notice that we used <strong>sync</strong> earlier to
+mean sequential, blocking execution, as opposed to async. Here, using a lock
+to protect shared data is sometimes called synchronizing the threads, which is
+a different but equally common meaning of the word in parallel computing. Both
+usages are standard in the field.</p>
+<p>A lock ensures that only one thread can execute the protected code at a time,
+making the read-modify-write operation atomic. Here is how it looks in code.</p>
+<div class="listingblock" id="code-thread-safe-increment">
+    <div class="title">Code 10. Thread-safe increment with lock.</div>
+    <div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">lock</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">x</span>
+    <span class="c1"># Only one thread can enter this with block at a time.</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+
+<p>When a thread reaches the <code>async with lock</code> line, it tries to acquire the lock.
+If the lock is already held by another thread, it waits until the lock becomes
+available. Only one thread can hold the lock at a time, so only that thread is
+allowed to execute the code inside the <code>with</code> block. The lock is released
+automatically when the <code>with</code> block exits, at which point another waiting
+thread can acquire it and continue.</p>
+<p>As shown in the following figure,
+Thread 2 and Thread 3 both wait in gray while Thread 1 holds the lock and runs
+<code>x += 1</code>. Once Thread 1 releases the lock, Thread 3 happens to acquire it
+next, followed by Thread 2. Notice that the order is not determined by thread
+number. Any waiting thread can acquire the lock once it is free.</p>
+<div class="imageblock text-center" id="lock-diagram">
+    <div class="content">
+        <svg viewBox="0 0 550 276" width="550" height="276" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(32.949999999999996,-23)">
+<rect x="28" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Thread 1</text>
+<line x1="70" y1="56" x2="70" y2="294" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="196" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="238" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Thread 2</text>
+<line x1="238" y1="56" x2="238" y2="294" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="364" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="406" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Thread 3</text>
+<line x1="406" y1="56" x2="406" y2="294" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="63" y="70" width="14" height="70" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="105" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">x += 1</text>
+<text x="84" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">acquire</text>
+<text x="84" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">release</text>
+<rect x="231" y="70" width="14" height="140" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">wait</text>
+<rect x="399" y="70" width="14" height="70" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="420" y="105" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">wait</text>
+<rect x="399" y="140" width="14" height="70" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="392" y="175" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">x += 1</text>
+<text x="420" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">acquire</text>
+<text x="420" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">release</text>
+<rect x="231" y="210" width="14" height="70" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="224" y="245" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">x += 1</text>
+<text x="252" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">acquire</text>
+<text x="252" y="280" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">release</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 6. Lock sequence diagram.</div>
+</div>
+
+<p>Think of it like a single-occupancy restroom. When someone enters, they lock
+the door behind them. Anyone else who needs to use it must wait outside until
+the door is unlocked. Once the person inside finishes and unlocks the door,
+the next person can enter and lock it again. No two people are ever inside at
+the same time.</p>
+<p>Now let's apply this to parallel matmul. Recall that we can use <code>m * n * k</code>
+total threads, where each thread handles a single <code>+=</code> operation. Here is what
+that looks like in code.</p>
+<div class="listingblock" id="code-parallel-matmul-buggy">
+    <div class="title">Code 11. Parallel matmul with race condition.</div>
+    <div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">compute_element</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">parallel_matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Incompatible shapes.&quot;</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">compute_element</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+               <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+               <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">futures</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</code></pre></div>
+</div>
+
+<p>This has a race condition. For each output cell <code>output[i, j]</code>, there are <code>k</code>
+threads all doing <code>+=</code> on the same cell concurrently. This is exactly the same
+bug as the <code>x += 1</code> example. We can fix it by giving each output cell its own
+lock. Only <code>compute_element</code> needs to change; <code>parallel_matmul</code> stays the same
+except for passing the locks in.</p>
+<div class="listingblock" id="code-parallel-matmul-fixed">
+    <div class="title">Code 12. Fixed compute_element with lock.</div>
+    <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">compute_element</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">locks</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">locks</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+</code></pre></div>
+</div>
+
+<p>Each output cell has its own lock, so threads working on different cells do
+not block each other. Only threads competing to update the same cell are
+serialized. Code that correctly protects shared data from race conditions like
+this is called <strong>thread-safe</strong>.</p>
+<p>You might wonder how the lock itself is implemented safely. After all,
+acquiring a lock involves checking whether the flag is free and then setting
+it to taken. If these were two separate instructions, two threads could both
+read the flag as free at the same time, both decide to acquire the lock, and
+both set the flag to taken, giving two threads the lock simultaneously, which
+is exactly the race condition we were trying to prevent in the first place. The
+lock would be broken by the very problem it was designed to fix.</p>
+<p>The answer lies in the hardware. CPUs provide special instructions like
+<strong>compare-and-swap (CAS)</strong> that bundle the check and the write into a single
+uninterruptible step. This is an atomic operation implemented natively as a
+CPU instruction. The CPU physically locks the memory bus for that one
+instruction so no other core can read or write that memory location until it
+completes. Only one thread can win the CAS. The other sees that the flag is
+already taken and waits. Locks, barriers (which we will introduce in the next
+section), and all other synchronization tools are ultimately built on top of
+these hardware-level atomic operations.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../parallel-computing/async-call/">Async call</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../parallel-computing/barrier/">Barrier</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

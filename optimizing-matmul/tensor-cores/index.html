@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Tensor Cores</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname !== 'localhost' && !window.location.hostname.endsWith('github.dev')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/"><span
+                            class="toc-current">Tensor Cores</span></a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="tensor-cores">
+  <h2>8.6. Tensor Cores</h2>
+</div>
+
+<p>The <code>torch.addmm</code> call in <a href="../../optimizing-matmul/matmul-gpu-kernel/#code-matmul-helion">Code 19</a> does not actually run on the CUDA cores we discussed in <a href="../../gpu-architecture/the-streaming-multiprocessor/#the-sm">The streaming multiprocessor</a>. It runs on <strong>Tensor Cores</strong>, hardware specialized for <strong>matrix multiply-accumulate (MMA)</strong>, the <code>sum += a * b</code> operation at the heart of matrix multiplication.</p>
+<p>As covered in <a href="../../gpu-architecture/the-streaming-multiprocessor/#the-sm">The streaming multiprocessor</a>, CUDA cores are like CPU cores but simpler. Because they support many different operations, each instruction follows the full fetch-execute cycle: fetch, decode, read operands, execute, and write back. This overhead exists to provide flexibility for general-purpose computation.</p>
+<div class="imageblock text-center" id="cpu-instruction-cycle">
+    <div class="content">
+        <svg viewBox="0 0 550 89" width="550" height="89" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(42.900000000000006,-7.0)">
+<line x1="63.00" y1="56.00" x2="123.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="133.00,56.00 123.00,59.00 123.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="147.00" y1="56.00" x2="207.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="217.00,56.00 207.00,59.00 207.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="231.00" y1="56.00" x2="291.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="301.00,56.00 291.00,59.00 291.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="315.00" y1="56.00" x2="375.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="385.00,56.00 375.00,59.00 375.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="56" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="140" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="224" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="308" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="392" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="392.0" y1="63" x2="392.0" y2="77" stroke="var(--text-main, black)" stroke-width="2" />
+<path d="M 392.0 77 Q 392.0 91.0 378.0 91" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="378.0" y1="91" x2="70" y2="91" stroke="var(--text-main, black)" stroke-width="2" />
+<path d="M 70 91 Q 56.0 91.0 56 77" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="56.00" y1="77.00" x2="56.00" y2="73.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="56.00,63.00 59.00,73.00 53.00,73.00" fill="var(--text-main, black)" stroke="none" />
+<text x="56" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Fetch</text>
+<text x="140" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Decode</text>
+<text x="224" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Execute</text>
+<text x="308" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Memory</text>
+<text x="392" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Writeback</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 28. The CPU instruction cycle.</div>
+</div>
+
+<p>For matrix multiply-accumulate, none of that flexibility is needed. The operation is always the same, and the data always flows the same way. A Tensor Core hard-codes all of this, eliminating the fetch, decode, and writeback overhead entirely. Hardware specialized to do exactly one thing is called an <strong>application-specific integrated circuit (ASIC)</strong>. The throughput advantage over a CUDA core is roughly 100×.</p>
+<p>A Tensor Core is structured as a grid of multiply-accumulate units, as shown in the following figure.</p>
+<div class="imageblock text-center" id="tensor-core-grid">
+    <div class="content">
+        <svg viewBox="0 0 550 150" width="550" height="150" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(107.0,-9)">
+<circle cx="28" cy="28" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="42.00" y1="28.00" x2="60.00" y2="28.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="70.00,28.00 60.00,31.00 60.00,25.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="28.00" y1="42.00" x2="28.00" y2="60.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="28.00,70.00 25.00,60.00 31.00,60.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="84" cy="28" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="98.00" y1="28.00" x2="116.00" y2="28.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="126.00,28.00 116.00,31.00 116.00,25.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="84.00" y1="42.00" x2="84.00" y2="60.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="84.00,70.00 81.00,60.00 87.00,60.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="140" cy="28" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="154.00" y1="28.00" x2="172.00" y2="28.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="182.00,28.00 172.00,31.00 172.00,25.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="140.00" y1="42.00" x2="140.00" y2="60.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="140.00,70.00 137.00,60.00 143.00,60.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="196" cy="28" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="210.00" y1="28.00" x2="228.00" y2="28.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="238.00,28.00 228.00,31.00 228.00,25.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="196.00" y1="42.00" x2="196.00" y2="60.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="196.00,70.00 193.00,60.00 199.00,60.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="252" cy="28" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="266.00" y1="28.00" x2="284.00" y2="28.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="294.00,28.00 284.00,31.00 284.00,25.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="252.00" y1="42.00" x2="252.00" y2="60.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="252.00,70.00 249.00,60.00 255.00,60.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="308" cy="28" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="308.00" y1="42.00" x2="308.00" y2="60.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="308.00,70.00 305.00,60.00 311.00,60.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="28" cy="84" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="42.00" y1="84.00" x2="60.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="70.00,84.00 60.00,87.00 60.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="28.00" y1="98.00" x2="28.00" y2="116.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="28.00,126.00 25.00,116.00 31.00,116.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="84" cy="84" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="98.00" y1="84.00" x2="116.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="126.00,84.00 116.00,87.00 116.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="84.00" y1="98.00" x2="84.00" y2="116.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="84.00,126.00 81.00,116.00 87.00,116.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="140" cy="84" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="154.00" y1="84.00" x2="172.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="182.00,84.00 172.00,87.00 172.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="140.00" y1="98.00" x2="140.00" y2="116.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="140.00,126.00 137.00,116.00 143.00,116.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="196" cy="84" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="210.00" y1="84.00" x2="228.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="238.00,84.00 228.00,87.00 228.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="196.00" y1="98.00" x2="196.00" y2="116.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="196.00,126.00 193.00,116.00 199.00,116.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="252" cy="84" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="266.00" y1="84.00" x2="284.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="294.00,84.00 284.00,87.00 284.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="252.00" y1="98.00" x2="252.00" y2="116.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="252.00,126.00 249.00,116.00 255.00,116.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="308" cy="84" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="308.00" y1="98.00" x2="308.00" y2="116.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="308.00,126.00 305.00,116.00 311.00,116.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="28" cy="140" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="42.00" y1="140.00" x2="60.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="70.00,140.00 60.00,143.00 60.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="84" cy="140" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="98.00" y1="140.00" x2="116.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="126.00,140.00 116.00,143.00 116.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="140" cy="140" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="154.00" y1="140.00" x2="172.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="182.00,140.00 172.00,143.00 172.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="196" cy="140" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="210.00" y1="140.00" x2="228.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="238.00,140.00 228.00,143.00 228.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="252" cy="140" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="266.00" y1="140.00" x2="284.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="294.00,140.00 284.00,143.00 284.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="308" cy="140" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 29. A Tensor Core as a grid of multiply-accumulate units.</div>
+</div>
+
+<p>Each circle in the figure is one unit. It receives data flowing in from the left and from above, passes it along to the right and downward, and computes one multiply-accumulate on the way. There is no fetch, no decode, no writeback: the operation and the data path are both fixed in silicon. Because all units in the grid operate in parallel, the entire tile is processed at once. An animated version of this is available on <a href="/">the home page</a>.</p>
+<p>Tensor Cores are not the only ASIC on a GPU. <strong>Special Function Units (SFUs)</strong> handle transcendental functions like <code>exp</code> and <code>log</code>, which appear in activation functions such as softmax and GeLU. Knowing which operations run on which unit, and how fast each one is, helps you reason about where the bottleneck in your workload actually lies.</p>
+<p>Because Tensor Cores are so much faster than CUDA cores for MMA, matmul almost always bottlenecks on memory bandwidth rather than compute, which is exactly why the memory access optimizations throughout this chapter matter as much as they do.</p>
+<p>You rarely invoke Tensor Cores directly. For standard operators like <code>torch.addmm</code>, PyTorch routes the computation to Tensor Cores automatically. For custom kernels written in Triton or Helion, the compiler handles the dispatch as well.</p>
+<p>One detail we have glossed over is that the performance of Tensor Cores depends on the data type. Different formats represent numbers with different amounts of precision, trading accuracy for speed. Understanding how numbers are represented at the bit level, and what these tradeoffs look like in practice, is the subject of the next chapter.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../to-be-continued/">To be continued ...</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

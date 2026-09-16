@@ -1,0 +1,117 @@
+/**
+ * One Dark / One Light syntax theme for Pygments (via python-markdown's
+ * codehilite extension). Same palette as the book's previous Prism.js
+ * theme -- these are the same --hue-N and --mono-N variables, just
+ * remapped from Prism's .token.* classes to Pygments' short class names.
+ * Default: One Dark. Light: [data-theme="light"] on an ancestor element.
+ *
+ * Based on Atom's One Dark/Light themes:
+ * https://github.com/atom/atom/tree/master/packages/one-dark-syntax
+ * https://github.com/atom/atom/tree/master/packages/one-light-syntax
+ */
+
+:root {
+	/* Default: One Dark Variables */
+	--mono-3: hsl(220, 10%, 40%);
+	--hue-1: hsl(187, 47%, 55%);
+	--hue-2: hsl(207, 82%, 66%);
+	--hue-3: hsl(286, 60%, 67%);
+	--hue-4: hsl(95, 38%, 62%);
+	--hue-6: hsl(29, 54%, 61%);
+	--syntax-fg: hsl(220, 14%, 71%);
+	--syntax-bg: hsl(0, 0%, 100%, 0.1);
+	--syntax-selection-color: hsl(220, 13%, 28%);
+}
+
+[data-theme="light"] {
+	/* One Light Variable Overrides */
+	--mono-3: hsl(230, 4%, 64%);
+	--hue-1: hsl(198, 99%, 37%);
+	--hue-2: hsl(221, 87%, 60%);
+	--hue-3: hsl(301, 63%, 40%);
+	--hue-4: hsl(119, 34%, 47%);
+	--hue-6: hsl(35, 99%, 36%);
+	--syntax-fg: hsl(230, 8%, 24%);
+	--syntax-bg: hsl(0, 0%, 0%, 0.1);
+	--syntax-selection-color: hsl(230, 1%, 90%);
+}
+
+/* --- Base code block styles --- */
+
+.codehilite {
+	background: var(--syntax-bg);
+	border-radius: 0.3em;
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+}
+
+.codehilite pre,
+.codehilite code {
+	font-size: 12px;
+	color: var(--syntax-fg);
+	font-family: var(--font-code);
+	line-height: 1.5;
+}
+
+.codehilite pre {
+	margin: 0;
+}
+
+.codehilite code {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	transition: background-color var(--theme-transition-time) ease, color var(--theme-transition-time) ease;
+}
+
+.codehilite ::selection {
+	background: var(--syntax-selection-color);
+	color: inherit;
+}
+
+/* --- Token colors ---
+   Pygments short class reference: k=keyword, kc=keyword.constant,
+   kn=keyword.namespace, kt=keyword.type, c1=comment, s/s1/s2/sa/si=string,
+   mi/mf=number, n=name (generic identifier, left at default fg, matching
+   Prism's Python grammar which doesn't color plain variables), nb=builtin,
+   nc=class name, nd=decorator (left default, matching Prism), nf/fm=function
+   name, nn=namespace name (left default), o=operator, ow=word operator
+   (and/or/in/is/not -- Prism's grammar classifies these as keywords, not
+   operators), p=punctuation, bp=builtin pseudo (self/cls, left default),
+   w=whitespace (unstyled). */
+
+.codehilite .c1 {
+	color: var(--mono-3);
+	font-style: italic;
+}
+
+.codehilite .k,
+.codehilite .kn,
+.codehilite .kt,
+.codehilite .ow {
+	color: var(--hue-3);
+}
+
+.codehilite .kc,
+.codehilite .mi,
+.codehilite .mf,
+.codehilite .nc {
+	color: var(--hue-6);
+}
+
+.codehilite .s,
+.codehilite .s1,
+.codehilite .s2,
+.codehilite .sa,
+.codehilite .si,
+.codehilite .nb {
+	color: var(--hue-4);
+}
+
+.codehilite .nf,
+.codehilite .fm,
+.codehilite .o {
+	color: var(--hue-2);
+}

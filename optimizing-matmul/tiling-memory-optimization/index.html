@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Tiling memory optimization</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname !== 'localhost' && !window.location.hostname.endsWith('github.dev')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/"><span
+                            class="toc-current">Tiling memory optimization</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="tiling-memory-optimization">
+  <h2>8.4. Tiling memory optimization</h2>
+</div>
+
+<p>We now introduce a more advanced tiling strategy with more flexibility for tile sizes.</p>
+<p>The key idea is not to load entire rows of A into the shared memory at once. Instead, we can divide the rows of A into smaller tiles, and load one tile of A into the shared memory at a time. And do the same for B.</p>
+<p>Let's see a visualized example. Again, we use the 4 by 4 matrix multiplication <code>C = AB</code> as an example, shown in the following figure.</p>
+<div class="imageblock text-center" id="tiling-memory">
+    <div class="content">
+        <svg viewBox="0 0 550 229" width="550" height="229" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(153.04999999999998,-14.0)">
+<text x="0" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">A</text>
+<rect x="14" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="84.00" y1="70.00" x2="102.00" y2="70.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="112.00,70.00 102.00,73.00 102.00,67.00" fill="var(--text-main, black)" stroke="none" />
+<text x="0" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">B</text>
+<rect x="14" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="84.00" y1="140.00" x2="102.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="112.00,140.00 102.00,143.00 102.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<text x="0" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">C</text>
+<rect x="14" y="182" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="182" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="196" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="196" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="84.00" y1="210.00" x2="102.00" y2="210.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="112.00,210.00 102.00,213.00 102.00,207.00" fill="var(--text-main, black)" stroke="none" />
+<text x="154" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">t=1</text>
+<text x="224" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">t=2</text>
+<text x="0" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">A</text>
+<rect x="126" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="0" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">B</text>
+<rect x="126" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="0" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">C</text>
+<rect x="126" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 27. Memory-optimized matrix multiplication tiling strategy.</div>
+</div>
+
+<p>To compute one 2 by 2 block of C, we can divide the two rows of A, a 2 by 4 tile, into two 2 by 2 tiles. And do the same for the two columns of B. The 2 by 2 blocks from A and B are loaded into the shared memory at different time steps.</p>
+<p>How could this even work? We need a full row of A and a full column of B to compute one element of C, which is the dot product of the two vectors. However, we can divide the dot product into two parts. For example, if a row of A is <code>[1, 2, 3, 4]</code> and a column of B is <code>[5, 6, 7, 8]</code>, the dot product would be <code>1*5 + 2*6 + 3*7 + 4*8</code>. Now, we can divide it into two parts: <code>(1*5 + 2*6)</code> and <code>(3*7 + 4*8)</code>. At <code>t=1</code>, we do <code>c = 1*5 + 2*6</code>. At <code>t=2</code>, we do <code>c += 3*7 + 4*8</code>.</p>
+<p>In this way, we have split the vectors from A and B into two segments. Therefore, there is no need to load the entire row of A and entire column of B into the shared memory at once. We can arbitrarily decide the tile size we access each time.</p>
+<p>Regarding the arithmetic intensity, it is the same as the previous tiling strategy: the same amount of computation and the same total bytes transferred, just split across two time steps instead of one. But unlike the previous strategy, this approach is not constrained by the matrix dimensions. We can freely choose tile sizes that fill shared memory well, which improves memory utilization, reduces the number of batches, and gives the pipeline more time to overlap computation with loading. The result is better performance despite identical arithmetic intensity, confirming the lesson from <a href="../../optimizing-matmul/shared-memory-utilization/#memory-occupancy">Shared memory utilization</a>: equal arithmetic intensity does not guarantee equal performance.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

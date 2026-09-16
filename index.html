@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>MLSys Engineering</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname !== 'localhost' && !window.location.hostname.endsWith('github.dev')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter toc-chapter-current">
+            <a href="."><span
+                    class="toc-current">Home</span></a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <p><svg id="mlsys-logo" viewBox="0 -20 550 215" xmlns="http://www.w3.org/2000/svg" style="transition: all 0.1s ease;">
+<g id="logo-content" transform="translate(68.0,-22.0)"></g>
+</svg></p>
+<script src="/js/logo-animation.js"></script>
+
+<p>Welcome to "MLSys Engineering"!
+Your journey into machine learning systems starts here!</p>
+<h3>Who should read this book</h3>
+<p>This book is for anyone who wants to learn MLSys engineering. You might be a machine learning engineer, a research scientist seeking more MLSys knowledge, or someone like me transitioning into MLSys.
+This book equips you with the essential knowledge and skills for MLSys
+engineering, explained clearly in plain language. The book is designed to be
+short and easy-to-read.</p>
+<h3>What you will get</h3>
+<p>This book delivers essential MLSys knowledge for beginners, no fluff, with a
+smooth learning curve that keeps a consistent depth throughout. Along the way,
+you'll develop <strong>system thinking</strong>. We emphasize the intuition behind how
+problems are approached, a mindset that will help you tackle the MLSys
+challenges of tomorrow.</p>
+<h3>Prerequisites</h3>
+<p>In the age of AI, there is no prerequisite for any book. You can always have an AI by your side and ask it for any background knowledge you need even if you know absolutely nothing about the subject. However, here are the suggested prerequisites to give you a sense of the assumed background knowledge.</p>
+<p>On the engineering side, you should have basic programming skills in Python and be able to read some simple C++ code. You should have some basic experience using PyTorch to implement simple neural networks, like training a multi-layer perceptron (MLP) on MNIST.</p>
+<p>On the machine learning side, you should know the basics, for example, what stochastic gradient descent (SGD) is and how it updates neural network weights, or be able to pick it up quickly when needed. In the book, we will briefly review some machine learning concepts as they come up, but will not go into depth.</p>
+<p>On the systems side, an introductory course to computer science is recommended. We will introduce all the advanced systems concepts from scratch, but you should at least know the basic concepts like what software, hardware, memory, a CPU, compilation, machine code, and parallelization are.</p>
+<h3>How to use this book</h3>
+<p>The easiest way to read this book is to pick it up and read a couple of sections whenever you have time. Sections are short, so you can start and stop at any time. Feel free to skip parts that do not interest you or that you already know, and come back to them later if needed. Overall, it should be a smooth and delightful experience instead of a heavy burden.</p>
+<h3>About the Author</h3>
+<p>I am someone like you, who wants to learn more about MLSys.
+I wrote this book to share what I learned along the way.</p>
+<p>The quality and clarity of this book demonstrate my qualifications more
+effectively than any credentials or past achievements. Let the work speak for
+itself.</p>
+<h3>
+<svg class="octicon octicon-heart" viewBox="-1 -1 18 18" width="22" height="22" fill="currentColor" style="position: relative; top: 4px;">
+    <path
+        d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002ZM4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.58 20.58 0 0 0 8 13.393a20.58 20.58 0 0 0 3.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.749.749 0 0 1-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5Z">
+    </path>
+</svg>
+Support this work</h3>
+
+<p>This book is 100% free to read online. I design the website to be clean and
+delightful to use with no distractions like ads, merch, or subscriptions.
+The content is independently created and remains objective, with no interest or
+obligation to promote any specific technology.
+If you enjoy this book, the best way to support it is to share it with friends,
+colleagues, or anyone who wants to learn MLSys.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div></div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="preface/">Preface</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
