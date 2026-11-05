@@ -1,0 +1,47 @@
+<svg viewBox="0 0 550 229" width="550" height="229" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(177.0,0.0)">
+<text x="0" y="14" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">C = AB:</text>
+<rect x="0" y="28" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="43" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">54</text>
+<rect x="28" y="28" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="43" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">38</text>
+<rect x="0" y="56" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">50</text>
+<rect x="28" y="56" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">17</text>
+<text x="112" y="14" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">A:</text>
+<rect x="112" y="28" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="43" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="140" y="28" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="154" y="43" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="168" y="28" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="43" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="112" y="56" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="140" y="56" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="154" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="168" y="56" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<line x1="112" y1="28" x2="56" y2="28" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="112" y1="56" x2="56" y2="56" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="28" y1="168" x2="28" y2="84" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="56" y1="196" x2="56" y2="84" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="0" y="126" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">B:</text>
+<rect x="0" y="140" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="155" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="28" y="140" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="155" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="0" y="168" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="183" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="28" y="168" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="183" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="0" y="196" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="211" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="28" y="196" width="28" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="211" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="112" y="140" width="84" height="84" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="184.8" y="166" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">38 = 3×3</text>
+<text x="184.8" y="182" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">+ 4×1</text>
+<text x="184.8" y="198" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">+ 5×5</text>
+</g>
+</svg>

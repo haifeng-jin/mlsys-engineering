@@ -1,0 +1,21 @@
+<svg viewBox="0 0 550 146" width="550" height="146" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(120.125,-9.0)">
+<text x="160" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">E4M3</text>
+<rect x="0" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="40" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="80" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="120" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="160" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="200" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="240" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="40" y1="93.0" x2="40" y2="150.0" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="200" y1="93.0" x2="200" y2="150.0" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="10" y="116.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">sign</text>
+<text x="120" y="116.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="260.0" y="116.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<text x="10" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1 bit</text>
+<text x="120" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4 bits</text>
+<text x="260.0" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3 bits</text>
+</g>
+</svg>

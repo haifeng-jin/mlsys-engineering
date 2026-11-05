@@ -1,0 +1,181 @@
+<svg viewBox="0 0 550 355" width="550" height="355" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(79.05000000000001,14.0)">
+<text x="0" y="0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">0D Tensor (Scalar):</text>
+<rect x="0" y="14" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="29" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<text x="238.0" y="0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1D Tensor (Vector):</text>
+<rect x="238.0" y="14" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="29" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="266.0" y="14" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="29" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="294.0" y="14" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="29" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="322.0" y="14" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336.0" y="29" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<text x="0" y="84" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">2D Tensor (Matrix):</text>
+<rect x="0" y="98" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="113" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="28" y="98" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="113" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="56" y="98" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70" y="113" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="0" y="126" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="141" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="28" y="126" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="141" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="56" y="126" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70" y="141" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="0" y="154" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="169" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="28" y="154" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42" y="169" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="56" y="154" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70" y="169" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<text x="238.0" y="84" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">3D Tensor:</text>
+<rect x="252.0" y="112.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280.0" y="112.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308.0" y="112.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="252.0" y="140.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280.0" y="140.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308.0" y="140.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="252.0" y="168.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280.0" y="168.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308.0" y="168.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="245.0" y="105.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="273.0" y="105.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="301.0" y="105.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="245.0" y="133.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="273.0" y="133.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="301.0" y="133.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="245.0" y="161.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="273.0" y="161.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="301.0" y="161.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238.0" y="98.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="113.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="266.0" y="98.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="113.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="294.0" y="98.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="113.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="238.0" y="126.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="266.0" y="126.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="294.0" y="126.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="238.0" y="154.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="169.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="266.0" y="154.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="169.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="294.0" y="154.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="169.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<text x="0" y="224.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">4D Tensor:</text>
+<rect x="14.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="70.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="70.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="70.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="7.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="35.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="63.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="7.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="35.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="63.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="7.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="35.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="63.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="0.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="28.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="56.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="0.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="28.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="56.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="0.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="28.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="42.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="56.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="133.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="161.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="189.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="133.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="161.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="189.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="133.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="161.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="189.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="182.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="182.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="182.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="119.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="133.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="147.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="175.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="189.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="119.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="133.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="147.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="175.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="189.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="119.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="133.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="147.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="175.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="189.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="252.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308.0" y="252.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="252.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308.0" y="280.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="252.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308.0" y="308.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="245.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="273.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="301.0" y="245.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="245.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="273.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="301.0" y="273.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="245.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="273.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="301.0" y="301.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="266.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="294.0" y="238.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="253.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="238.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="266.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="294.0" y="266.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="281.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="238.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="266.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="294.0" y="294.0" width="28" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="308.0" y="309.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+</g>
+</svg>

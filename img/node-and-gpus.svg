@@ -1,0 +1,22 @@
+<svg viewBox="0 0 550 119" width="550" height="119" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(168.0,7.0)">
+<rect x="0" y="21" width="214" height="86" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="107" y="7" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="11" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="61" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="111" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="161" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="11" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="61" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="111" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="161" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+</g>
+</svg>

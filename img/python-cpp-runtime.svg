@@ -1,0 +1,25 @@
+<svg viewBox="0 0 550 134" width="550" height="134" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(37.0,-4.0)">
+<text x="0" y="18" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Runtime:</text>
+<rect x="0" y="69" width="91" height="30" rx="7" ry="7" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="9" y="55" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">y = x + b</text>
+<text x="9" y="85" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">z = y @ w</text>
+<text x="9" y="115" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">a = relu(z)</text>
+<line x1="91.00" y1="84.00" x2="109.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="119.00,84.00 109.00,87.00 109.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="119" y="63" width="119" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="178" y="85" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Interpreter</text>
+<line x1="238.00" y1="84.00" x2="256.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="266.00,84.00 256.00,87.00 256.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="266" y="63" width="112" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="322" y="85" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Binary (.so)</text>
+<rect x="406" y="35" width="70" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="441" y="57" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">CPU</text>
+<rect x="406" y="91" width="70" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="441" y="113" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<path d="M 378 84 C 387.00 84, 387.00 56, 396.00 56" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="406.00,56.00 396.00,53.00 396.00,59.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 378 84 C 387.00 84, 387.00 112, 396.00 112" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="406.00,112.00 396.00,109.00 396.00,115.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>

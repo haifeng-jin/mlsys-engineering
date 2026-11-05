@@ -1,0 +1,55 @@
+<svg viewBox="0 0 550 197" width="550" height="197" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(163.15000000000003,-9.0)">
+<text x="192" y="28" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">NaN</text>
+<rect x="0" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="12" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="24" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="36" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="48" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="60" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="72" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="84" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="96" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="108" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="120" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="144" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="156" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="168" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="180" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="192" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="204" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="216" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="228" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="240" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="264" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="276" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="288" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="300" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="312" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="324" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="336" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="348" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="360" y="70" width="24" height="24" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="372" y="82" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<line x1="24" y1="94" x2="24" y2="201" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="216" y1="94" x2="216" y2="201" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="-55" y="117" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">decoded:</text>
+<text x="-55" y="142" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">name:</text>
+<text x="-55" y="167" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">stored range:</text>
+<text x="-55" y="192" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">actual range:</text>
+<text x="0" y="117" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">+/−</text>
+<text x="120" y="117" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">∞</text>
+<text x="300" y="117" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">≠ 0</text>
+<text x="0" y="142" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">sign</text>
+<text x="120" y="142" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="300" y="142" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<text x="0" y="167" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">0 to 1</text>
+<text x="120" y="167" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0 to 255</text>
+<text x="300" y="167" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0 to 127</text>
+<text x="0" y="192" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">+/−</text>
+<text x="120" y="192" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−2<tspan baseline-shift="super" font-size="12">7</tspan>+2 to 2<tspan baseline-shift="super" font-size="12">7</tspan>−1</text>
+<text x="300" y="192" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1 to 2−2<tspan baseline-shift="super" font-size="12">-7</tspan></text>
+</g>
+</svg>

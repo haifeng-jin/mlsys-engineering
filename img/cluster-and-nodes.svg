@@ -1,0 +1,102 @@
+<svg viewBox="0 0 550 263" width="550" height="263" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(68.0,7.0)">
+<rect x="0" y="21" width="414" height="230" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="207" y="7" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Cluster</text>
+<rect x="11" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="61" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="111" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="161" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="211" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="232" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="261" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="282" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="311" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="332" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="361" y="32" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="382" y="47" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="11" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="61" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="111" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="161" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="211" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="232" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="261" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="282" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="311" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="332" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="361" y="68" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="382" y="83" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="11" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="61" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="111" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="161" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="211" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="232" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="261" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="282" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="311" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="332" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="361" y="104" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="382" y="119" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="11" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="61" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="111" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="161" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="211" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="232" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="261" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="282" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="311" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="332" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="361" y="140" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="382" y="155" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="11" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="61" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="111" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="161" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="211" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="232" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="261" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="282" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="311" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="332" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="361" y="176" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="382" y="191" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="11" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="32" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="61" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="82" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="111" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="132" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="161" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="182" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="211" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="232" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="261" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="282" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="311" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="332" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+<rect x="361" y="212" width="42" height="28" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="382" y="227" font-size="15" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Node</text>
+</g>
+</svg>

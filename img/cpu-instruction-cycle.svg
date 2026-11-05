@@ -1,0 +1,28 @@
+<svg viewBox="0 0 550 89" width="550" height="89" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(42.900000000000006,-7.0)">
+<line x1="63.00" y1="56.00" x2="123.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="133.00,56.00 123.00,59.00 123.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="147.00" y1="56.00" x2="207.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="217.00,56.00 207.00,59.00 207.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="231.00" y1="56.00" x2="291.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="301.00,56.00 291.00,59.00 291.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="315.00" y1="56.00" x2="375.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="385.00,56.00 375.00,59.00 375.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="56" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="140" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="224" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="308" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="392" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="392.0" y1="63" x2="392.0" y2="77" stroke="var(--text-main, black)" stroke-width="2" />
+<path d="M 392.0 77 Q 392.0 91.0 378.0 91" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="378.0" y1="91" x2="70" y2="91" stroke="var(--text-main, black)" stroke-width="2" />
+<path d="M 70 91 Q 56.0 91.0 56 77" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="56.00" y1="77.00" x2="56.00" y2="73.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="56.00,63.00 59.00,73.00 53.00,73.00" fill="var(--text-main, black)" stroke="none" />
+<text x="56" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Fetch</text>
+<text x="140" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Decode</text>
+<text x="224" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Execute</text>
+<text x="308" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Memory</text>
+<text x="392" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Writeback</text>
+</g>
+</svg>

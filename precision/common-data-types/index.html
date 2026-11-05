@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Common data types</title>
+    
+    <link rel="canonical" href="https://mlsys.engineering/precision/common-data-types/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname.endsWith('mlsys.engineering')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/profiling/">Profiling</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../precision/">9. Precision</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../precision/decimal-floating-point/">Decimal floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/common-data-types/"><span
+                            class="toc-current">Common data types</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/arithmetic/">Arithmetic</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/precision-loss/">Precision loss</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../frameworks/">10. Frameworks</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/python-and-c-runtime/">Python and C++ runtime</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/automatic-differentiation/">Automatic differentiation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="common-data-types">
+  <h2>9.3. Common data types</h2>
+</div>
+
+<p>Even within floating-point types alone, there are many different formats. You have probably heard of FP32, BF16, and FP64. They all follow the same three-part structure (sign, exponent, and mantissa), but they differ in their total number of bits and how they divide those bits between the exponent and the mantissa. More bits for the exponent give a wider range of representable numbers, while more bits for the mantissa provide higher precision.</p>
+<p>Formats are often described using the shorthand ExMy, where x is the number of exponent bits and y is the number of mantissa bits. For example, E4M3 uses 4 bits for the exponent and 3 bits for the mantissa, with 1 sign bit giving 8 bits in total, as shown in the figure below.</p>
+<div class="imageblock text-center" id="e4m3-format">
+    <div class="content">
+        <svg viewBox="0 0 550 146" width="550" height="146" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(120.125,-9.0)">
+<text x="160" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">E4M3</text>
+<rect x="0" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="40" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="80" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="120" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="160" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="200" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="240" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="280" y="53.0" width="40" height="40" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="40" y1="93.0" x2="40" y2="150.0" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="200" y1="93.0" x2="200" y2="150.0" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="10" y="116.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">sign</text>
+<text x="120" y="116.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="260.0" y="116.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<text x="10" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1 bit</text>
+<text x="120" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4 bits</text>
+<text x="260.0" y="141.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3 bits</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 39. E4M3 format.</div>
+</div>
+
+<p>Similarly, BF16 is E8M7. FP16, which is also 16 bits total, is E5M10. It trades exponent range for mantissa precision, making it more likely to overflow at large values and to underflow to zero at small values. The table below shows the bit layout for the most common floating-point formats in ML.</p>
+<div class="tableblock" id="table-float-dtypes">
+    <div class="title">Table 2. Bit layout of common floating-point formats.</div>
+    <table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Total bits</th>
+<th>Sign</th>
+<th>Exponent</th>
+<th>Mantissa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP64</td>
+<td>64</td>
+<td>1</td>
+<td>11</td>
+<td>52</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>32</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+</tr>
+<tr>
+<td>BF16</td>
+<td>16</td>
+<td>1</td>
+<td>8</td>
+<td>7</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>16</td>
+<td>1</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>FP8 (E4M3)</td>
+<td>8</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>FP8 (E5M2)</td>
+<td>8</td>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>FP4 (E2M1)</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>While neural network weights and activations are typically represented as floating-point numbers, machine learning systems also rely on a few other data types:</p>
+<ul>
+<li><strong>Integers:</strong> Integers represent whole numbers with no fractional component, such as -1, 0, or 42.</li>
+<li><strong>Booleans:</strong> Booleans represent binary truth values: either <code>True</code> or <code>False</code>.</li>
+<li><strong>Complex numbers:</strong> Complex numbers have the form a + bi, where a and b are floating-point numbers representing the real and imaginary parts, and i = <svg class="radical" viewBox="0 0 32.5 23.0" width="1.81em" height="1.28em" style="display: inline-block; vertical-align: -0.36em; overflow: visible;" xmlns="http://www.w3.org/2000/svg"><path d="M 1 12.5 L 4 12.5 L 7 20.5 L 11 1.0 L 32.5 1.0" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="4" /><text font-family="'STIX Two Text', Georgia, serif" font-size="18px" fill="currentColor"><tspan x="13.5" y="16.5">-1</tspan></text></svg>.</li>
+</ul>
+<p>The table below summarizes these data types along with their bit widths and representable ranges.</p>
+<div class="tableblock" id="table-other-dtypes">
+    <div class="title">Table 3. Other common data types in machine learning.</div>
+    <table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Format</th>
+<th>Bits</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td>INT4</td>
+<td>4</td>
+<td>-8 to 7</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>INT8</td>
+<td>8</td>
+<td>-128 to 127</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>UINT8</td>
+<td>8</td>
+<td>0 to 255</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>INT32</td>
+<td>32</td>
+<td>-2<sup>31</sup> to 2<sup>31</sup>-1</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>INT64</td>
+<td>64</td>
+<td>-2<sup>63</sup> to 2<sup>63</sup>-1</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>BOOL</td>
+<td>8</td>
+<td>0 or 1 (False or True)</td>
+</tr>
+<tr>
+<td>Complex</td>
+<td>COMPLEX64</td>
+<td>64</td>
+<td>Two FP32 numbers</td>
+</tr>
+<tr>
+<td>Complex</td>
+<td>COMPLEX128</td>
+<td>128</td>
+<td>Two FP64 numbers</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>You may be curious how 4-bit formats work because 4 bits is not even a full byte. Memory is addressed byte by byte, so numbers like INT4 and FP4 are packed two per byte. Some recent hardware can compute on 4-bit numbers directly. Otherwise, they are unpacked into a wider format before computation.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../precision/arithmetic/">Arithmetic</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

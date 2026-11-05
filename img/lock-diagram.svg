@@ -1,0 +1,29 @@
+<svg viewBox="0 0 550 276" width="550" height="276" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(32.949999999999996,-23)">
+<rect x="28" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Thread 1</text>
+<line x1="70" y1="56" x2="70" y2="294" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="196" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="238" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Thread 2</text>
+<line x1="238" y1="56" x2="238" y2="294" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="364" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="406" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Thread 3</text>
+<line x1="406" y1="56" x2="406" y2="294" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="63" y="70" width="14" height="70" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="105" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">x += 1</text>
+<text x="84" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">acquire</text>
+<text x="84" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">release</text>
+<rect x="231" y="70" width="14" height="140" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">wait</text>
+<rect x="399" y="70" width="14" height="70" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="420" y="105" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">wait</text>
+<rect x="399" y="140" width="14" height="70" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="392" y="175" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">x += 1</text>
+<text x="420" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">acquire</text>
+<text x="420" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">release</text>
+<rect x="231" y="210" width="14" height="70" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="224" y="245" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">x += 1</text>
+<text x="252" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">acquire</text>
+<text x="252" y="280" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">release</text>
+</g>
+</svg>

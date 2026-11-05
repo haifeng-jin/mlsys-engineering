@@ -1,0 +1,14 @@
+<svg viewBox="0 0 550 81" width="550" height="81" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(197.375,-14.0)">
+<text x="-10" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">decimal:</text>
+<text x="-10" y="81.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">binary:</text>
+<text x="90" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">0.47 × 10<tspan baseline-shift="super" font-size="12">-2</tspan></text>
+<text x="106" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">✗</text>
+<text x="210" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">4.7 × 10<tspan baseline-shift="super" font-size="12">-3</tspan></text>
+<text x="226" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="90" y="81.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">0.11<tspan baseline-shift="sub" font-size="12">2</tspan> × 2<tspan baseline-shift="super" font-size="12">3</tspan></text>
+<text x="106" y="81.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">✗</text>
+<text x="210" y="81.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">1.1<tspan baseline-shift="sub" font-size="12">2</tspan> × 2<tspan baseline-shift="super" font-size="12">2</tspan></text>
+<text x="226" y="81.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">✓</text>
+</g>
+</svg>

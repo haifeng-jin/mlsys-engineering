@@ -1,0 +1,21 @@
+<svg viewBox="0 0 550 152" width="550" height="152" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(79.19999999999999,-7.0)">
+<circle cx="68" cy="21" r="7"  fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="89" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">setup (1ms)</text>
+<circle cx="256" cy="21" r="7"  fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="277" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">transfer</text>
+<text x="100" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">1 batch:</text>
+<rect x="114" y="56" width="28" height="28" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="142" y="56" width="140" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="212" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">10ms</text>
+<text x="296" y="71" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">= 11ms</text>
+<text x="100" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">2 batches:</text>
+<rect x="114" y="126" width="28" height="28" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="142" y="126" width="70" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="177" y="141" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5ms</text>
+<rect x="212" y="126" width="28" height="28" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="240" y="126" width="70" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="275" y="141" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5ms</text>
+<text x="324" y="141" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">= 12ms</text>
+</g>
+</svg>

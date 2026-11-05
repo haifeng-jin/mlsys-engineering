@@ -1,0 +1,25 @@
+<svg viewBox="0 0 550 150" width="550" height="150" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(71.0,-9)">
+<text x="183" y="42" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">shared memory</text>
+<line x1="108.00" y1="42.00" x2="74.00" y2="42.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="64.00,42.00 74.00,39.00 74.00,45.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="258.00" y1="42.00" x2="292.00" y2="42.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="302.00,42.00 292.00,45.00 292.00,39.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="64" y1="14" x2="64" y2="70" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="302" y1="14" x2="302" y2="70" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="64" y="70" width="238" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="64" y="70" width="140" height="28" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="134" y="84" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1 row</text>
+<text x="253" y="84" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">unused</text>
+<line x1="302" y1="70" x2="344" y2="70" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="344" y1="70" x2="344" y2="98" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="302" y1="98" x2="344" y2="98" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="204" y="126" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2 rows</text>
+<line x1="164.00" y1="126.00" x2="74.00" y2="126.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" stroke-dasharray="4 4" />
+<polygon points="64.00,126.00 74.00,123.00 74.00,129.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="244.00" y1="126.00" x2="334.00" y2="126.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" stroke-dasharray="4 4" />
+<polygon points="344.00,126.00 334.00,129.00 334.00,123.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="64" y1="98" x2="64" y2="154" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="344" y1="98" x2="344" y2="154" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+</g>
+</svg>

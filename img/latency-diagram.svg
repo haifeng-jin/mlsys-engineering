@@ -1,0 +1,19 @@
+<svg viewBox="0 0 550 97" width="550" height="97" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(65.0,5)">
+<rect x="0" y="0" width="98" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="49" y="17" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Send</text>
+<text x="49" y="39" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">request</text>
+<rect x="98" y="0" width="224" height="56" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="210" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Wait</text>
+<rect x="322" y="0" width="98" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="17" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Receive</text>
+<text x="371" y="39" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">data</text>
+<line x1="0" y1="70" x2="0" y2="84" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="420" y1="70" x2="420" y2="84" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="168.00" y1="77.00" x2="10.00" y2="77.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="0.00,77.00 10.00,74.00 10.00,80.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="252.00" y1="77.00" x2="410.00" y2="77.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="420.00,77.00 410.00,80.00 410.00,74.00" fill="var(--text-main, black)" stroke="none" />
+<text x="210" y="77" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">57 ns</text>
+</g>
+</svg>

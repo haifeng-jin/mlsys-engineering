@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Automatic differentiation</title>
+    
+    <link rel="canonical" href="https://mlsys.engineering/frameworks/automatic-differentiation/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname.endsWith('mlsys.engineering')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/profiling/">Profiling</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../precision/">9. Precision</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../precision/decimal-floating-point/">Decimal floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/common-data-types/">Common data types</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/arithmetic/">Arithmetic</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/precision-loss/">Precision loss</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../frameworks/">10. Frameworks</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/python-and-c-runtime/">Python and C++ runtime</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/automatic-differentiation/"><span
+                            class="toc-current">Automatic differentiation</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="automatic-differentiation">
+  <h2>10.4. Automatic differentiation</h2>
+</div>
+
+<p>Now that we understand backpropagation, you may have noticed that as long as the forward pass is defined, we can always derive its backward pass. We do not need to know what each op does inside, as long as each op's <code>forward</code> and <code>backward</code> functions are paired together, as sketched in the following base class.</p>
+<div class="listingblock" id="code-op-class">
+    <div class="title">Code 24. An operator with paired forward and backward methods.</div>
+    <div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Op</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</code></pre></div>
+</div>
+
+<p>For simplicity, suppose we have a model structured as a single chain of ops without any weights. During the forward pass, we evaluate the ops sequentially from input to output. Because each op's backward function may need the activation passed into its forward function, we save each intermediate activation along the way, as shown below.</p>
+<div class="imageblock text-center" id="forward-pass-saved-activations">
+    <div class="content">
+        <svg viewBox="0 0 550 189" width="550" height="189" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(70.5,-9)">
+<circle cx="110" cy="20" r="6"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="123" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Activation</text>
+<rect x="208" y="14" width="19" height="12" rx="6" ry="6" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="234" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Forward op</text>
+<circle cx="14" cy="75" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x0</text>
+<circle cx="141" cy="75" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="141" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x1</text>
+<circle cx="268" cy="75" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="268" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x2</text>
+<circle cx="395" cy="75" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="395" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x3</text>
+<rect x="44" y="61" width="67" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="77" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op1</text>
+<line x1="28.00" y1="75.00" x2="34.00" y2="75.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="44.00,75.00 34.00,78.00 34.00,72.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="111.00" y1="75.00" x2="117.00" y2="75.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="127.00,75.00 117.00,78.00 117.00,72.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="171" y="61" width="67" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="204" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op2</text>
+<line x1="155.00" y1="75.00" x2="161.00" y2="75.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="171.00,75.00 161.00,78.00 161.00,72.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="238.00" y1="75.00" x2="244.00" y2="75.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="254.00,75.00 244.00,78.00 244.00,72.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="298" y="61" width="67" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="331" y="76" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op3</text>
+<line x1="282.00" y1="75.00" x2="288.00" y2="75.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="298.00,75.00 288.00,78.00 288.00,72.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="365.00" y1="75.00" x2="371.00" y2="75.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="381.00,75.00 371.00,78.00 371.00,72.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="62" y="103" width="158" height="60" rx="11" ry="11" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="141" y="184" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Saved activations</text>
+<path d="M 14 89 C 14 99.00, 97 99.00, 97 109.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="97.00,119.00 94.00,109.00 100.00,109.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="141.00" y1="89.00" x2="141.00" y2="109.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="141.00,119.00 138.00,109.00 144.00,109.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 268 89 C 268 99.00, 185 99.00, 185 109.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="185.00,119.00 182.00,109.00 188.00,109.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="97" cy="133" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="97" y="134" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x0</text>
+<circle cx="141" cy="133" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="141" y="134" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x1</text>
+<circle cx="185" cy="133" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="134" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x2</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 49. Saved activations in forward pass.</div>
+</div>
+
+<p>Here is the code snippet for the forward pass.</p>
+<div class="listingblock" id="code-forward-pass">
+    <div class="title">Code 25. Forward pass recording intermediate activations.</div>
+    <div class="codehilite"><pre><span></span><code><span class="n">saved_activations</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">get_model_input</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">ops</span><span class="p">:</span>
+    <span class="n">saved_activations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+</div>
+
+<p>Once the forward pass completes, the backward pass runs in reverse order using the saved activations, as shown below.</p>
+<div class="imageblock text-center" id="backward-pass-saved-activations">
+    <div class="content">
+        <svg viewBox="0 0 550 215" width="550" height="215" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(70.5,-9)">
+<circle cx="59" cy="20" r="6"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="72" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Activation</text>
+<circle cx="163" cy="20" r="6"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="176" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Gradient</text>
+<rect x="251" y="14" width="19" height="12" rx="6" ry="6" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="277" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Backward op</text>
+<rect x="125" y="89" width="158" height="60" rx="11" ry="11" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="204" y="73" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Saved activations</text>
+<circle cx="160" cy="119" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="160" y="120" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x0</text>
+<circle cx="204" cy="119" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="204" y="120" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x1</text>
+<circle cx="248" cy="119" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="248" y="120" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x2</text>
+<circle cx="14" cy="205" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x0</text>
+<circle cx="141" cy="205" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="141" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x1</text>
+<circle cx="268" cy="205" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="268" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x2</text>
+<circle cx="395" cy="205" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="395" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x3</text>
+<rect x="44" y="191" width="67" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="77" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op1</text>
+<line x1="127.00" y1="205.00" x2="121.00" y2="205.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="111.00,205.00 121.00,202.00 121.00,208.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="44.00" y1="205.00" x2="38.00" y2="205.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="28.00,205.00 38.00,202.00 38.00,208.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 160 133 C 160 157.00, 77 157.00, 77 181.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="77.00,191.00 74.00,181.00 80.00,181.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="171" y="191" width="67" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="204" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op2</text>
+<line x1="254.00" y1="205.00" x2="248.00" y2="205.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="238.00,205.00 248.00,202.00 248.00,208.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="171.00" y1="205.00" x2="165.00" y2="205.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="155.00,205.00 165.00,202.00 165.00,208.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="204.00" y1="133.00" x2="204.00" y2="181.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="204.00,191.00 201.00,181.00 207.00,181.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="298" y="191" width="67" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="331" y="206" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op3</text>
+<line x1="381.00" y1="205.00" x2="375.00" y2="205.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="365.00,205.00 375.00,202.00 375.00,208.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="298.00" y1="205.00" x2="292.00" y2="205.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="282.00,205.00 292.00,202.00 292.00,208.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 248 133 C 248 157.00, 331 157.00, 331 181.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="331.00,191.00 328.00,181.00 334.00,181.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 50. Backward pass with saved activations.</div>
+</div>
+
+<p>Here is the code snippet for the backward pass.</p>
+<div class="listingblock" id="code-backward-pass">
+    <div class="title">Code 26. Backward pass executing ops in reverse order.</div>
+    <div class="codehilite"><pre><span></span><code><span class="n">grad</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="k">for</span> <span class="n">op</span><span class="p">,</span> <span class="n">saved_x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">ops</span><span class="p">),</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">saved_activations</span><span class="p">)):</span>
+    <span class="n">grad</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">grad</span><span class="p">,</span> <span class="n">saved_x</span><span class="p">)</span>
+</code></pre></div>
+</div>
+
+<p>Although this example uses a single chain where each op takes only one input, modern deep learning frameworks generalize this pattern. An op can accept multiple inputs, such as weights and activations, and its outputs can branch into multiple downstream ops, forming a more complex graph. The user only needs to define the forward pass. The framework computes the gradients automatically. This automated mechanism is what modern frameworks refer to as automatic differentiation, or autodiff for short.</p>
+<p>If you are interested in a complete implementation of autodiff, see <a href="https://github.com/haifeng-jin/readable-ml-framework/blob/v0.0.1/framework/autograd.py">readable-ml-framework</a>.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

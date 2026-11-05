@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Arithmetic</title>
+    
+    <link rel="canonical" href="https://mlsys.engineering/precision/arithmetic/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname.endsWith('mlsys.engineering')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/profiling/">Profiling</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../precision/">9. Precision</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../precision/decimal-floating-point/">Decimal floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/common-data-types/">Common data types</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/arithmetic/"><span
+                            class="toc-current">Arithmetic</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/precision-loss/">Precision loss</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../frameworks/">10. Frameworks</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/python-and-c-runtime/">Python and C++ runtime</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/automatic-differentiation/">Automatic differentiation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="arithmetic">
+  <h2>9.4. Arithmetic</h2>
+</div>
+
+<p>We will first see how floating-point multiplication works. To make it easier to follow, we use the decimal format introduced in <a href="../../precision/decimal-floating-point/#decimal-floating-point">Decimal floating-point</a>. Multiplying two floating-point numbers is straightforward because each field is handled mostly independently:</p>
+<div class="imageblock text-center" id="float-multiplication">
+    <div class="content">
+        <svg viewBox="0 0 550 297" width="550" height="297" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(92.80000000000001,-9.0)">
+<text x="23" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">sign</text>
+<text x="92" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="184" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<rect x="0" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="23" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="46" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="69" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="92" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="115" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="138" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="184" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="207" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="251.0" y="74" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+1.2 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<rect x="0" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="23" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="46" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="69" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="92" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="115" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="138" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="184" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="207" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="251.0" y="176" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(−2.3 × 10<tspan baseline-shift="super" font-size="12">2</tspan>)</text>
+<rect x="0" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="23" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="46" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="69" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="92" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="115" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="138" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="184" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="207" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<text x="251.0" y="278" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(−2.76 → −2.8)</text>
+<line x1="46" y1="51" x2="46" y2="301" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="138" y1="51" x2="138" y2="301" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="23" y="125" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">×</text>
+<text x="92" y="125" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+ (add)</text>
+<text x="184" y="125" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">× (multiply)</text>
+<line x1="23.00" y1="217.00" x2="23.00" y2="227.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="23.00,237.00 20.00,227.00 26.00,227.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="92.00" y1="217.00" x2="92.00" y2="227.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="92.00,237.00 89.00,227.00 95.00,227.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="184.00" y1="217.00" x2="184.00" y2="227.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="184.00,237.00 181.00,227.00 187.00,227.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 40. Floating-point multiplication.</div>
+</div>
+
+<p>As shown in the figure above, the process breaks down into three simple steps:</p>
+<ol>
+<li><strong>Sign:</strong> The signs are multiplied together. A positive number multiplied by a negative number produces a negative result.</li>
+<li><strong>Exponent:</strong> The exponents are added together (3 + 2 = 5). Remember that the stored exponents include a bias of 50, so the stored value in the figure is 55 rather than 5.</li>
+<li><strong>Mantissa:</strong> The mantissas are multiplied together (1.2 × 2.3 = 2.76). Since our decimal format only stores two mantissa digits, the hardware rounds 2.76 up to 2.8.</li>
+</ol>
+<p>If the mantissa product reaches 10 or more, like 4.0 × 4.0 = 16, the hardware shifts it back to 1.6 and adds 1 to the exponent.</p>
+<p>Now let's see how floating-point addition works. As shown in the following figure, to add two numbers like 1.2 × 10<sup>3</sup> and -2.3 × 10<sup>2</sup>, the hardware follows three steps:</p>
+<div class="imageblock text-center" id="float-addition">
+    <div class="content">
+        <svg viewBox="0 0 550 501" width="550" height="501" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(2.3500000000000227,-9.0)">
+<text x="168" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">sign</text>
+<text x="237" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="352" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<rect x="145" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="191" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="283" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="329" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="389" y="74" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+1.2 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<rect x="145" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="191" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="283" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="329" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="389" y="176" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(−2.3 × 10<tspan baseline-shift="super" font-size="12">2</tspan>)</text>
+<line x1="191" y1="51" x2="191" y2="505" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="283" y1="51" x2="283" y2="505" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="237.00" y1="217.00" x2="237.00" y2="227.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="237.00,237.00 234.00,227.00 240.00,227.00" fill="var(--text-main, black)" stroke="none" />
+<text x="5" y="227" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1. Align exponent</text>
+<rect x="145" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="191" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="283" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="329" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="375" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="398" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="435" y="278" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(−0.23 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<line x1="352.00" y1="319.00" x2="352.00" y2="329.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="352.00,339.00 349.00,329.00 355.00,329.00" fill="var(--text-main, black)" stroke="none" />
+<text x="5" y="329" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">2. Add mantissas</text>
+<text x="366" y="329" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1.20 − 0.23 = 0.97</text>
+<rect x="145" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="191" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="283" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="329" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="375" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="398" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<text x="435" y="380" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+0.97 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<line x1="352.00" y1="421.00" x2="352.00" y2="431.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="352.00,441.00 349.00,431.00 355.00,431.00" fill="var(--text-main, black)" stroke="none" />
+<text x="5" y="431" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">3. Normalize</text>
+<rect x="145" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="191" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="283" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="329" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<text x="389" y="482" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+9.7 × 10<tspan baseline-shift="super" font-size="12">2</tspan>)</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 41. Floating-point addition.</div>
+</div>
+
+<ol>
+<li><strong>Align exponents:</strong> First, the hardware aligns the exponents. Shifting -2.3 × 10<sup>2</sup> right by one position gives -0.23 × 10<sup>3</sup>, so the sum becomes (1.20 - 0.23) × 10<sup>3</sup>.</li>
+<li><strong>Add mantissas:</strong> With both numbers sharing the exponent 10<sup>3</sup>, their mantissas are added directly: 1.20 - 0.23 = 0.97.</li>
+<li><strong>Normalize:</strong> Shift back to standard scientific notation from 0.97 × 10<sup>3</sup> to 9.7 × 10<sup>2</sup>.</li>
+</ol>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../precision/common-data-types/">Common data types</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../precision/precision-loss/">Precision loss</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

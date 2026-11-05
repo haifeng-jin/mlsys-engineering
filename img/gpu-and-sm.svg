@@ -1,0 +1,273 @@
+<svg viewBox="0 0 550 376" width="550" height="376" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(26.5,7.0)">
+<rect x="0" y="21" width="497" height="343" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="248" y="7" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<rect x="7" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="28" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="41" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="56" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="69" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="84" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="97" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="112" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="125" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="140" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="153" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="168" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="181" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="196" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="209" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="224" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="237" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="252" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="265" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="280" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="293" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="308" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="321" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="7" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="21" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="42" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="77" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="91" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="112" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="126" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="147" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="161" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="182" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="217" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="252" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="266" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="287" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="301" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="322" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="336" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="357" y="336" width="28" height="21" rx="5" ry="5" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="371" y="349" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">SM</text>
+<rect x="392" y="28" width="98" height="329" rx="5" ry="5" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="441" y="181" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Global</text>
+<text x="441" y="203" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Memory</text>
+</g>
+</svg>

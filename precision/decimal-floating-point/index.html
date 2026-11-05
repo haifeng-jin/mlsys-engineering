@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Decimal floating-point</title>
+    
+    <link rel="canonical" href="https://mlsys.engineering/precision/decimal-floating-point/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname.endsWith('mlsys.engineering')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/profiling/">Profiling</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../precision/">9. Precision</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../precision/decimal-floating-point/"><span
+                            class="toc-current">Decimal floating-point</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/common-data-types/">Common data types</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/arithmetic/">Arithmetic</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/precision-loss/">Precision loss</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../frameworks/">10. Frameworks</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/python-and-c-runtime/">Python and C++ runtime</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/automatic-differentiation/">Automatic differentiation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="decimal-floating-point">
+  <h2>9.1. Decimal floating-point</h2>
+</div>
+
+<p>Let's see how a floating-point number is stored in a computer. Take the value
+-0.047, which could very well be a real neural network weight value.
+We will first try to convert it to an imaginary decimal format, which is a
+useful mental model when thinking about floating-point numbers. Then, we will show
+how the binary format is similar or different. To be clear, hardware used for
+machine learning does not store numbers in decimal. This example serves
+purely for educational purposes.</p>
+<p>We first write it in scientific notation, which is -4.7 × 10<sup>-2</sup>. Then,
+we extract the three fields: a sign (-), a mantissa (47), and an exponent
+(-2). Those are the exact 3 parts we need to write it in the decimal format.
+See the figure below. You may have noticed that we are using 48 to represent -2. We will get right to it.</p>
+<div class="imageblock text-center" id="floating-point-format">
+    <div class="content">
+        <svg viewBox="0 0 550 173" width="550" height="173" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(232.29999999999998,-37)">
+<text x="-56" y="70" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">−4.7 × 10<tspan baseline-shift="super" font-size="18">-2</tspan></text>
+<rect x="0" y="42" width="56" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="28" y="70" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="56" y="42" width="56" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="84" y="70" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="112" y="42" width="56" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="140" y="70" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="168" y="42" width="56" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="196" y="70" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="224" y="42" width="56" height="56" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252" y="70" font-size="28" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<line x1="56" y1="98" x2="56" y2="205" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="168" y1="98" x2="168" y2="205" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="-7" y="121" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">decoded:</text>
+<text x="-7" y="146" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">name:</text>
+<text x="-7" y="171" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">stored range:</text>
+<text x="-7" y="196" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">actual range:</text>
+<text x="28" y="121" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<text x="112" y="121" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−2</text>
+<text x="224" y="121" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4.7</text>
+<text x="28" y="146" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">sign</text>
+<text x="112" y="146" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="224" y="146" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<text x="28" y="171" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+/−</text>
+<text x="112" y="171" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0 to 99</text>
+<text x="224" y="171" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0 to 99</text>
+<text x="28" y="196" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+/−</text>
+<text x="112" y="196" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−50 to +49</text>
+<text x="224" y="196" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0.0 to 9.9</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 34. Decimal floating-point format.</div>
+</div>
+
+<p>In the figure, you can see the first part is the sign. It can be either positive or negative.
+This is quite straightforward.</p>
+<p>The second part is the exponent, which has two decimal digits. It should be able to represent numbers from 0 to 99.
+However, as the exponent, we may want both negative and positive values, so that we can represent a wider range of numbers,
+as small as 1.0 × 10<sup>-50</sup> and as large as 9.9 × 10<sup>49</sup>. So, we use a simple trick to translate the range from [0, 99] to [-50, 49].
+In our format, we always subtract 50 from the stored number to get the actual exponent. So, 0 represents -50, and 99 represents 49. Every value in between has a corresponding value to represent.
+In our case of 10<sup>-2</sup>, we want to represent -2. So, x - 50 = -2, which means x = 48. We use 48 to represent -2.</p>
+<p>The third part is the mantissa, which is also very simple. We use 0 to 99 to represent 0.0 to 9.9.</p>
+<p>This three-part representation has two main limitations on what numbers it
+can represent. First, it cannot represent any number that is out of its range. For example, it cannot represent 1.2 × 10<sup>60</sup> since it is out of the maximum range.
+Second, it cannot effectively represent numbers with higher precision. For example, there is no way to represent
+4.75 × 10<sup>-2</sup> since we only have two digits to represent the mantissa,
+but we need three digits. We are running out of precision.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../precision/">Precision</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
