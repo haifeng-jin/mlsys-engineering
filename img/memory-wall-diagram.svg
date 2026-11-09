@@ -1,0 +1,15 @@
+<svg viewBox="0 0 550 133" width="550" height="133" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(37.0,-7.0)">
+<circle cx="62" cy="21" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="83" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">compute</text>
+<circle cx="207" cy="21" r="7"  fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="228" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">waiting for memory</text>
+<rect x="28" y="56" width="42" height="42" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="70" y="56" width="98" height="42" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="56" width="42" height="42" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="56" width="98" height="42" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="308" y="56" width="42" height="42" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="350" y="56" width="98" height="42" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="238" y="126" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU core</text>
+</g>
+</svg>

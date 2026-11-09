@@ -1,0 +1,98 @@
+<svg viewBox="0 0 550 162" width="550" height="162" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(11.825644347017828,-98.0)">
+<line x1="98.00" y1="168.00" x2="116.00" y2="168.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="126.00,168.00 116.00,171.00 116.00,165.00" fill="var(--text-main, black)" stroke="none" />
+<text x="133" y="168.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">X</text>
+<line x1="98.00" y1="168.00" x2="98.00" y2="186.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="98.00,196.00 95.00,186.00 101.00,186.00" fill="var(--text-main, black)" stroke="none" />
+<text x="98" y="203.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Y</text>
+<line x1="98.00" y1="168.00" x2="108.74" y2="161.80" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="117.40,156.80 110.24,164.40 107.24,159.20" fill="var(--text-main, black)" stroke="none" />
+<text x="124.39896904477143" y="149.8" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Z</text>
+<circle cx="98" cy="168.0" r="2.8"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="224" cy="168.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="182.0" y="168.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<circle cx="236.12435565298213" cy="161.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="194.12435565298213" y="161.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<circle cx="248.24871130596426" cy="154.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="206.24871130596426" y="154.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<line x1="224" y1="168.0" x2="248.2487113059643" y2="154.0" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="224" cy="189.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="182.0" y="189.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<circle cx="236.12435565298213" cy="182.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="194.12435565298213" y="182.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<circle cx="248.24871130596426" cy="175.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="206.24871130596426" y="175.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<line x1="224" y1="189.0" x2="248.2487113059643" y2="175.0" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="224" cy="210.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="182.0" y="210.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<circle cx="236.12435565298213" cy="203.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="194.12435565298213" y="203.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<circle cx="248.24871130596426" cy="196.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="206.24871130596426" y="196.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<line x1="224" y1="210.0" x2="248.2487113059643" y2="196.0" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="224.00" y1="140.00" x2="224.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="224.00,245.00 221.00,235.00 227.00,235.00" fill="var(--text-main, black)" stroke="none" />
+<text x="224" y="126.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<line x1="236.12" y1="133.00" x2="236.12" y2="228.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="236.12,238.00 233.12,228.00 239.12,228.00" fill="var(--text-main, black)" stroke="none" />
+<text x="236.12435565298213" y="119.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<line x1="248.25" y1="126.00" x2="248.25" y2="221.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="248.25,231.00 245.25,221.00 251.25,221.00" fill="var(--text-main, black)" stroke="none" />
+<text x="248.24871130596426" y="112.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="322" y="147.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="280" y="168.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<circle cx="322" cy="168.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="334.12435565298216" y="140.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="292.12435565298216" y="161.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<circle cx="334.12435565298216" cy="161.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="346.2487113059643" y="133.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="304.2487113059643" y="154.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<circle cx="346.2487113059643" cy="154.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="322" y1="168.0" x2="346.24871130596426" y2="154.0" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280" y="189.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">4</text>
+<circle cx="322" cy="189.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="292.12435565298216" y="182.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<circle cx="334.12435565298216" cy="182.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="304.2487113059643" y="175.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<circle cx="346.2487113059643" cy="175.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="322" y1="189.0" x2="346.24871130596426" y2="175.0" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="280" y="210.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<circle cx="322" cy="210.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="292.12435565298216" y="203.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<circle cx="334.12435565298216" cy="203.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="304.2487113059643" y="196.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<circle cx="346.2487113059643" cy="196.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="322" y1="210.0" x2="346.24871130596426" y2="196.0" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="364" y="147.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<circle cx="364" cy="168.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="376.12435565298216" y="140.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">6</text>
+<circle cx="376.12435565298216" cy="161.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="388.2487113059643" y="133.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<circle cx="388.2487113059643" cy="154.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="364" y1="168.0" x2="388.24871130596426" y2="154.0" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="364" cy="189.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="376.12435565298216" cy="182.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="388.2487113059643" cy="175.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="364" y1="189.0" x2="388.24871130596426" y2="175.0" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="364" cy="210.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="376.12435565298216" cy="203.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="388.2487113059643" cy="196.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="364" y1="210.0" x2="388.24871130596426" y2="196.0" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="406" y="147.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">8</text>
+<circle cx="406" cy="168.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="418.12435565298216" y="140.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<circle cx="418.12435565298216" cy="161.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<text x="430.2487113059643" y="133.0" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">10</text>
+<circle cx="430.2487113059643" cy="154.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="406" y1="168.0" x2="430.24871130596426" y2="154.0" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="406" cy="189.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="418.12435565298216" cy="182.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="430.2487113059643" cy="175.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="406" y1="189.0" x2="430.24871130596426" y2="175.0" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="406" cy="210.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="418.12435565298216" cy="203.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<circle cx="430.2487113059643" cy="196.0" r="3"  fill="var(--text-main, black)" stroke="None" stroke-width="2" />
+<line x1="406" y1="210.0" x2="430.24871130596426" y2="196.0" stroke="var(--text-main, black)" stroke-width="2" />
+</g>
+</svg>

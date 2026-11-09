@@ -1,0 +1,13 @@
+<svg viewBox="0 0 550 184" width="550" height="184" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(46.5,-20)">
+<rect x="28" y="25" width="174" height="174" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="115" y="105" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Host</text>
+<text x="115" y="125" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Memory</text>
+<rect x="342" y="69" width="87" height="87" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="385" y="105" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Device</text>
+<text x="385" y="125" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Memory</text>
+<line x1="202.00" y1="112.00" x2="332.00" y2="112.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="342.00,112.00 332.00,115.00 332.00,109.00" fill="var(--text-main, black)" stroke="none" />
+<text x="272" y="98" font-size="12" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">a.to("cuda")</text>
+</g>
+</svg>

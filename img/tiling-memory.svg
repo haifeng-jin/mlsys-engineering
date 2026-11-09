@@ -1,0 +1,162 @@
+<svg viewBox="0 0 550 229" width="550" height="229" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(153.04999999999998,-14.0)">
+<text x="0" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">A</text>
+<rect x="14" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="84.00" y1="70.00" x2="102.00" y2="70.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="112.00,70.00 102.00,73.00 102.00,67.00" fill="var(--text-main, black)" stroke="none" />
+<text x="0" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">B</text>
+<rect x="14" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="84.00" y1="140.00" x2="102.00" y2="140.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="112.00,140.00 102.00,143.00 102.00,137.00" fill="var(--text-main, black)" stroke="none" />
+<text x="0" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">C</text>
+<rect x="14" y="182" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="182" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="196" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="196" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="14" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="28" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="42" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="56" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="84.00" y1="210.00" x2="102.00" y2="210.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="112.00,210.00 102.00,213.00 102.00,207.00" fill="var(--text-main, black)" stroke="none" />
+<text x="154" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">t=1</text>
+<text x="224" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">t=2</text>
+<text x="0" y="70" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">A</text>
+<rect x="126" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="42" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="42" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="56" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="56" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="70" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="84" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="0" y="140" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">B</text>
+<rect x="126" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="112" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="126" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="112" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="126" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="140" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="140" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="154" width="14" height="14" fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="154" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="0" y="210" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">C</text>
+<rect x="126" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="126" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="140" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="154" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="168" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="182" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="182" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="196" width="14" height="14" fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="196" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="210" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="196" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="210" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="224" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<rect x="238" y="224" width="14" height="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+</g>
+</svg>

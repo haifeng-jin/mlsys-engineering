@@ -1,0 +1,26 @@
+<svg viewBox="0 0 550 301" width="550" height="301" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30.0,-14.0)">
+<text x="112" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Language Compiler</text>
+<rect x="0" y="56" width="224" height="42" rx="21" ry="21" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="112" y="77" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Source Files (.cc, .h)</text>
+<rect x="0" y="109" width="224" height="42" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="112" y="130" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Parser</text>
+<rect x="0" y="162" width="224" height="42" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="112" y="183" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">General Optimizer</text>
+<rect x="0" y="215" width="224" height="42" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="112" y="236" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Code Generator</text>
+<rect x="0" y="268" width="224" height="42" rx="21" ry="21" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="112" y="289" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">CPU Executable</text>
+<text x="378" y="28" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">ML Compiler</text>
+<rect x="266" y="56" width="224" height="42" rx="21" ry="21" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="378" y="77" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Model</text>
+<rect x="266" y="109" width="224" height="42" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="378" y="130" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Tracing</text>
+<rect x="266" y="162" width="224" height="42" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="378" y="183" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Graph Optimizer</text>
+<rect x="266" y="215" width="224" height="42" rx="5" ry="5" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="378" y="236" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Kernel Generator</text>
+<rect x="266" y="268" width="224" height="42" rx="21" ry="21" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="378" y="289" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU Kernels</text>
+</g>
+</svg>

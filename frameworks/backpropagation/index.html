@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Backpropagation</title>
+    
+    <link rel="canonical" href="https://mlsys.engineering/frameworks/backpropagation/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname.endsWith('mlsys.engineering')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/profiling/">Profiling</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../precision/">9. Precision</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../precision/decimal-floating-point/">Decimal floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/common-data-types/">Common data types</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/arithmetic/">Arithmetic</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/precision-loss/">Precision loss</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../frameworks/">10. Frameworks</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/python-and-c-runtime/">Python and C++ runtime</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/backpropagation/"><span
+                            class="toc-current">Backpropagation</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/automatic-differentiation/">Automatic differentiation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../compilers/">11. Compilers</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../compilers/what-is-a-compiler/">What is a compiler?</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/what-is-an-ml-compiler/">What is an ML compiler?</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/computation-graph/">Computation graph</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/traditional-vs-ml-compilers/">Traditional vs. ML compilers</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/jit-vs-aot/">JIT vs. AOT</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="backpropagation">
+  <h2>10.3. Backpropagation</h2>
+</div>
+
+<p>Every differentiable op in a framework has two functions: a forward function and a backward function. The forward function computes the op's output from its inputs, while the backward function computes the gradients needed to update the model's weights during training.</p>
+<p>For example, consider a matmul op with inputs <code>a</code> and <code>b</code> and output <code>c</code>, as shown in the following snippet. The forward function takes <code>a</code> and <code>b</code> as inputs and produces <code>c</code>. The backward function takes the gradient of <code>c</code> (<code>grad_c</code>), along with the original inputs <code>a</code> and <code>b</code>, and produces the gradients of <code>a</code> and <code>b</code> (<code>grad_a</code> and <code>grad_b</code>).</p>
+<div class="listingblock" id="code-matmul-backward">
+    <div class="title">Code 23. Forward and backward functions for matmul in NumPy.</div>
+    <div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">matmul_forward</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="c1"># a: (m, k), b: (k, n) -&gt; c: (m, n)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">@</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">matmul_backward</span><span class="p">(</span><span class="n">grad_c</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="c1"># grad_c: (m, n)</span>
+    <span class="n">grad_a</span> <span class="o">=</span> <span class="n">grad_c</span> <span class="o">@</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># (m, n) @ (n, k) -&gt; (m, k)</span>
+    <span class="n">grad_b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">grad_c</span>  <span class="c1"># (k, m) @ (m, n) -&gt; (k, n)</span>
+    <span class="k">return</span> <span class="n">grad_a</span><span class="p">,</span> <span class="n">grad_b</span>
+</code></pre></div>
+</div>
+
+<p>The following figure visualizes these two functions as a graph, showing how the forward inputs <code>a</code> and <code>b</code> are reused by the backward function.</p>
+<div class="imageblock text-center" id="matmul-backward-graph">
+    <div class="content">
+        <svg viewBox="0 0 550 252" width="550" height="252" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(180.8,-9)">
+<circle cx="-112" cy="20" r="6"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="-99" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Weight / Activation</text>
+<circle cx="44" cy="20" r="6"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="57" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Gradient</text>
+<rect x="132" y="14" width="19" height="12" rx="6" ry="6" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="158" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Forward</text>
+<rect x="230" y="14" width="19" height="12" rx="6" ry="6" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="256" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Backward</text>
+<rect x="0" y="54" width="91" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="45" y="69" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">matmul</text>
+<circle cx="25" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="25" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">a</text>
+<circle cx="65" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="65" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">b</text>
+<circle cx="185" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">c</text>
+<line x1="25.00" y1="112.00" x2="25.00" y2="92.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="25.00,82.00 28.00,92.00 22.00,92.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="65.00" y1="112.00" x2="65.00" y2="92.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="65.00,82.00 68.00,92.00 62.00,92.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 91 68 L 101.00 68 A 14.00 14.00 0 0 1 115.00 82.00 L 115.00 112.00 A 14.00 14.00 0 0 0 129.00 126 L 161.00 126" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="171.00,126.00 161.00,123.00 161.00,129.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="25.00" y1="140.00" x2="25.00" y2="160.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="25.00,170.00 22.00,160.00 28.00,160.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="65.00" y1="140.00" x2="65.00" y2="160.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="65.00,170.00 62.00,160.00 68.00,160.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="0" y="170" width="91" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="45" y="185" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">matmul</text>
+<circle cx="25" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="25" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">a</text>
+<circle cx="65" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="65" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">b</text>
+<circle cx="185" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">c</text>
+<path d="M 171 242 L 129.00 242 A 14.00 14.00 0 0 1 115.00 228.00 L 115.00 198.00 A 14.00 14.00 0 0 0 101.00 184 L 101.00 184" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="91.00,184.00 101.00,181.00 101.00,187.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="25.00" y1="198.00" x2="25.00" y2="218.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="25.00,228.00 22.00,218.00 28.00,218.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="65.00" y1="198.00" x2="65.00" y2="218.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="65.00,228.00 62.00,218.00 68.00,218.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 47. Forward and backward functions of matmul.</div>
+</div>
+
+<p>Let's see an example with more than one op. For example, if <code>matmul</code> is followed by <code>relu</code> to produce <code>d</code>, we can chain the two ops together, as shown in the following figure. The forward pass runs from left to right, and the backward pass runs from right to left. The gradients of <code>a</code> and <code>b</code> may be used to further backpropagate if <code>a</code> and <code>b</code> are outputs of earlier ops.</p>
+<div class="imageblock text-center" id="chained-backward-graph">
+    <div class="content">
+        <svg viewBox="0 0 550 252" width="550" height="252" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(110.80000000000001,-9)">
+<circle cx="-42" cy="20" r="6"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="-29" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Weight / Activation</text>
+<circle cx="114" cy="20" r="6"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="127" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Gradient</text>
+<rect x="202" y="14" width="19" height="12" rx="6" ry="6" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="228" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Forward</text>
+<rect x="300" y="14" width="19" height="12" rx="6" ry="6" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="326" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Backward</text>
+<rect x="0" y="54" width="91" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="45" y="69" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">matmul</text>
+<rect x="140" y="54" width="91" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="69" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">relu</text>
+<circle cx="25" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="25" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">a</text>
+<circle cx="65" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="65" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">b</text>
+<circle cx="185" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">c</text>
+<circle cx="325" cy="126" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="325" y="127" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">d</text>
+<line x1="25.00" y1="112.00" x2="25.00" y2="92.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="25.00,82.00 28.00,92.00 22.00,92.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="65.00" y1="112.00" x2="65.00" y2="92.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="65.00,82.00 68.00,92.00 62.00,92.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="185.00" y1="112.00" x2="185.00" y2="92.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="185.00,82.00 188.00,92.00 182.00,92.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 91 68 L 101.00 68 A 14.00 14.00 0 0 1 115.00 82.00 L 115.00 112.00 A 14.00 14.00 0 0 0 129.00 126 L 161.00 126" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="171.00,126.00 161.00,123.00 161.00,129.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 231 68 L 241.00 68 A 14.00 14.00 0 0 1 255.00 82.00 L 255.00 112.00 A 14.00 14.00 0 0 0 269.00 126 L 301.00 126" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="311.00,126.00 301.00,123.00 301.00,129.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="25.00" y1="140.00" x2="25.00" y2="160.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="25.00,170.00 22.00,160.00 28.00,160.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="65.00" y1="140.00" x2="65.00" y2="160.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="65.00,170.00 62.00,160.00 68.00,160.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="185.00" y1="140.00" x2="185.00" y2="160.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="185.00,170.00 182.00,160.00 188.00,160.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="0" y="170" width="91" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="45" y="185" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">matmul</text>
+<rect x="140" y="170" width="91" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="185" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">relu</text>
+<circle cx="25" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="25" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">a</text>
+<circle cx="65" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="65" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">b</text>
+<circle cx="185" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="185" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">c</text>
+<circle cx="325" cy="242" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="325" y="243" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">d</text>
+<line x1="25.00" y1="198.00" x2="25.00" y2="218.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="25.00,228.00 22.00,218.00 28.00,218.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="65.00" y1="198.00" x2="65.00" y2="218.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="65.00,228.00 62.00,218.00 68.00,218.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="185.00" y1="198.00" x2="185.00" y2="218.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="185.00,228.00 182.00,218.00 188.00,218.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 311 242 L 269.00 242 A 14.00 14.00 0 0 1 255.00 228.00 L 255.00 198.00 A 14.00 14.00 0 0 0 241.00 184 L 241.00 184" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="231.00,184.00 241.00,181.00 241.00,187.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 171 242 L 129.00 242 A 14.00 14.00 0 0 1 115.00 228.00 L 115.00 198.00 A 14.00 14.00 0 0 0 101.00 184 L 101.00 184" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="91.00,184.00 101.00,181.00 101.00,187.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 48. Chained forward and backward functions for matmul and ReLU.</div>
+</div>
+
+<p>In a full neural network, if we chain all the ops together, the forward pass runs from the inputs to the loss, and the backward pass runs backward starting with a gradient of 1 for the loss, propagating all the way to the gradients of the weights. This overall process of computing the gradients is called backpropagation.</p>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../frameworks/python-and-c-runtime/">Python and C++ runtime</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../frameworks/automatic-differentiation/">Automatic differentiation</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

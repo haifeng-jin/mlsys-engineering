@@ -1,0 +1,82 @@
+<svg viewBox="0 0 550 185" width="550" height="185" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(1.5,-16)">
+<line x1="121.00" y1="108.00" x2="230.00" y2="108.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="240.00,108.00 230.00,111.00 230.00,105.00" fill="var(--text-main, black)" stroke="none" />
+<text x="180" y="87" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Reduce-Scatter</text>
+<line x1="307.00" y1="108.00" x2="416.00" y2="108.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="426.00,108.00 416.00,111.00 416.00,105.00" fill="var(--text-main, black)" stroke="none" />
+<text x="366" y="87" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">All-Gather</text>
+<rect x="0" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="12" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="25" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="37" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="50" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="62" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="75" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="87" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="261" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="273" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="447" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="459" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="472" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="484" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="497" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="509" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="522" y="21" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="534" y="34" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">16</text>
+<rect x="0" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="12" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="25" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="37" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="50" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="62" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="75" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="87" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="261" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="273" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="447" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="459" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="472" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="484" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="497" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="509" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="522" y="71" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="534" y="84" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">16</text>
+<rect x="0" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="12" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="25" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="37" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="50" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="62" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="75" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="87" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="261" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="273" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="447" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="459" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="472" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="484" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="497" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="509" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="522" y="121" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="534" y="134" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">16</text>
+<rect x="0" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="12" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="25" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="37" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="50" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="62" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="75" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="87" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="261" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="273" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">16</text>
+<rect x="447" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="459" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="472" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="484" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="497" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="509" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="522" y="171" width="25" height="25" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="534" y="184" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="middle" dominant-baseline="middle">16</text>
+</g>
+</svg>

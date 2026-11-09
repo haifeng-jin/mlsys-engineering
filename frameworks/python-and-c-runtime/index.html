@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="preload">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Applies the saved/preferred theme before first paint, so the page
+         never paints dark-then-corrects-to-light. Must run before the
+         stylesheet so the right CSS variables are already in play. -->
+    <script>
+        (function () {
+            var mode = localStorage.getItem('theme') || 'system';
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <title>Python and C++ runtime</title>
+    
+    <link rel="canonical" href="https://mlsys.engineering/frameworks/python-and-c-runtime/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/code-highlight.css">
+    <!-- Google Analytics -->
+    <script>
+        if (window.location.hostname.endsWith('mlsys.engineering')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-249X3JVF0Y';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-249X3JVF0Y');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <nav>
+            <div class="toc" id="toc">
+    <ul class="sectlevel1">
+
+         <li class="toc-chapter">
+            <a href="../../">Home</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../preface/">Preface</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../what-is-mlsys/">1. What is MLSys?</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../what-is-mlsys/an-intuitive-understanding/">An intuitive understanding</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/comparison-to-traditional-systems/">Comparison to traditional systems</a>
+                </li>
+                
+                <li>
+                    <a href="../../what-is-mlsys/formal-definition/">Formal definition</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../matrix-multiplication/">2. Matrix multiplication</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../matrix-multiplication/tensor/">Tensor</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/ops/">Ops</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matrix-multiplication-math/">Matrix multiplication (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../matrix-multiplication/matmul-a-naive-implementation/">Matmul (a naive implementation)</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../parallel-computing/">3. Parallel computing</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../parallel-computing/multi-threading/">Multi-threading</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/race-condition/">Race condition</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/sync-call/">Sync call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/async-call/">Async call</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/atomic-operations/">Atomic operations</a>
+                </li>
+                
+                <li>
+                    <a href="../../parallel-computing/barrier/">Barrier</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../memory/">4. Memory</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../memory/memory-wall/">Memory wall</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/host-memory-vs-device-memory/">Host memory vs. device memory</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/memory-hierarchy/">Memory hierarchy</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/bandwidth/">Bandwidth</a>
+                </li>
+                
+                <li>
+                    <a href="../../memory/latency/">Latency</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../gpu-architecture/">5. GPU architecture</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../gpu-architecture/the-gpu/">The GPU</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/the-streaming-multiprocessor/">The streaming multiprocessor</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-programming-model/">GPU programming model</a>
+                </li>
+                
+                <li>
+                    <a href="../../gpu-architecture/gpu-memory-hierarchy/">GPU memory hierarchy</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-basics/">6. Performance basics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-basics/pipelining/">Pipelining</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/memory-bound/">Memory-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/compute-bound/">Compute-bound</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-basics/op-fusion/">Op fusion</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../performance-metrics/">7. Performance metrics</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../performance-metrics/throughput/">Throughput</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity/">Arithmetic intensity</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/arithmetic-intensity-math/">Arithmetic intensity (math)</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/roofline-model/">Roofline model</a>
+                </li>
+                
+                <li>
+                    <a href="../../performance-metrics/profiling/">Profiling</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../optimizing-matmul/">8. Optimizing matmul</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../optimizing-matmul/naive-tiling/">Naive tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/optimized-tiling/">Optimized tiling</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/shared-memory-utilization/">Shared memory utilization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tiling-memory-optimization/">Tiling memory optimization</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/matmul-gpu-kernel/">Matmul GPU Kernel</a>
+                </li>
+                
+                <li>
+                    <a href="../../optimizing-matmul/tensor-cores/">Tensor Cores</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../precision/">9. Precision</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../precision/decimal-floating-point/">Decimal floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/binary-floating-point/">Binary floating-point</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/common-data-types/">Common data types</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/arithmetic/">Arithmetic</a>
+                </li>
+                
+                <li>
+                    <a href="../../precision/precision-loss/">Precision loss</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter toc-chapter-current">
+            <a href="../../frameworks/">10. Frameworks</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/python-and-c-runtime/"><span
+                            class="toc-current">Python and C++ runtime</span></a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/automatic-differentiation/">Automatic differentiation</a>
+                </li>
+                
+                <li>
+                    <a href="../../frameworks/activation-checkpointing/">Activation checkpointing</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../compilers/">11. Compilers</a>
+            
+            <ul class="sectlevel2">
+                
+                <li>
+                    <a href="../../compilers/what-is-a-compiler/">What is a compiler?</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/what-is-an-ml-compiler/">What is an ML compiler?</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/computation-graph/">Computation graph</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/traditional-vs-ml-compilers/">Traditional vs. ML compilers</a>
+                </li>
+                
+                <li>
+                    <a href="../../compilers/jit-vs-aot/">JIT vs. AOT</a>
+                </li>
+                
+            </ul>
+            
+        </li>
+        
+         <li class="toc-chapter">
+            <a href="../../to-be-continued/">To be continued ...</a>
+            
+            <ul class="sectlevel2">
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</div>
+        </nav>
+        <div class="page-content">
+            <!-- Center Top Title & Sidebar Button -->
+            <header id="top-bar">
+                <button id="menu-toggle" aria-label="Toggle Table of Contents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+                <a href="/" class="book-title">MLSYS ENGINEERING</a>
+                <!-- Theme toggle: cycles Light -> Dark -> System on click (theme.js) -->
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </header>
+            <div class="layout-container">
+                <div id="content">
+                    <div class="section-title" id="python-cpp-runtime">
+  <h2>10.2. Python and C++ runtime</h2>
+</div>
+
+<p>All the code snippets in the previous section were written in Python. Developers prefer Python for its clean syntax, whereas C++ runs much faster and provides direct control over memory and hardware. To combine both strengths, frameworks pair a Python frontend with a C++ backend.</p>
+<p>Python is an interpreted language: instead of being compiled to machine code ahead of time, a Python script (<code>.py</code>) is executed by the Python interpreter at runtime, as shown in the following figure. This makes interactive development and debugging easy, but the interpreter is too slow for heavy tensor math and cannot directly control GPU hardware.</p>
+<div class="imageblock text-center" id="python-runtime">
+    <div class="content">
+        <svg viewBox="0 0 550 85" width="550" height="85" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(47.5,-3.5)">
+<rect x="0" y="30" width="105" height="30" rx="7" ry="7" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="9" y="16" font-size="15" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">a = 1 + 2</text>
+<text x="9" y="46" font-size="15" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">b = a * 3</text>
+<text x="9" y="76" font-size="15" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">c = b - 1</text>
+<line x1="105.00" y1="45.00" x2="137.00" y2="45.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="147.00,45.00 137.00,48.00 137.00,42.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="147" y="24" width="182" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="238" y="46" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Python Interpreter</text>
+<line x1="329.00" y1="45.00" x2="361.00" y2="45.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="371.00,45.00 361.00,48.00 361.00,42.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="371" y="24" width="84" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="413" y="46" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">CPU</text>
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 44. Python runtime.</div>
+</div>
+
+<p>In contrast, C++ and CUDA are compiled languages. Instead of interpreting code at runtime, a compiler translates the source files ahead of time into a binary shared library (<code>.so</code>), as shown in the following figure. This binary contains both compiled CPU machine code and compiled GPU kernels, which execute directly on the CPU and GPU at runtime without an interpreter.</p>
+<div class="imageblock text-center" id="cpp-runtime">
+    <div class="content">
+        <svg viewBox="0 0 550 215" width="550" height="215" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(44.0,0.0)">
+<text x="0" y="14" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Build time:</text>
+<rect x="0" y="35" width="126" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="63" y="57" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Source files</text>
+<line x1="126.00" y1="56.00" x2="158.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="168.00,56.00 158.00,59.00 158.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="168" y="35" width="126" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="231" y="57" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Compiler</text>
+<line x1="294.00" y1="56.00" x2="326.00" y2="56.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="336.00,56.00 326.00,59.00 326.00,53.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="336" y="35" width="126" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="399" y="57" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Binary (.so)</text>
+<text x="0" y="119" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Runtime:</text>
+<rect x="0" y="140" width="126" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="63" y="162" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Binary (.so)</text>
+<rect x="168" y="112" width="84" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="210" y="134" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">CPU</text>
+<rect x="168" y="168" width="84" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="210" y="190" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<path d="M 126 161 C 142.00 161, 142.00 133, 158.00 133" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="168.00,133.00 158.00,130.00 158.00,136.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 126 161 C 142.00 161, 142.00 189, 158.00 189" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="168.00,189.00 158.00,186.00 158.00,192.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 45. C++ and CUDA compilation and execution.</div>
+</div>
+
+<p>In a machine learning framework, the C++ and CUDA backend is pre-compiled into <code>.so</code> shared libraries before the framework is distributed. At runtime, as the Python interpreter steps through user code line by line, it calls into these <code>.so</code> binaries via language bindings instead of performing the tensor operations in Python, as shown in the following figure.</p>
+<div class="imageblock text-center" id="python-cpp-runtime">
+    <div class="content">
+        <svg viewBox="0 0 550 134" width="550" height="134" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(37.0,-4.0)">
+<text x="0" y="18" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Runtime:</text>
+<rect x="0" y="69" width="91" height="30" rx="7" ry="7" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="9" y="55" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">y = x + b</text>
+<text x="9" y="85" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">z = y @ w</text>
+<text x="9" y="115" font-size="14" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">a = relu(z)</text>
+<line x1="91.00" y1="84.00" x2="109.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="119.00,84.00 109.00,87.00 109.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="119" y="63" width="119" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="178" y="85" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Interpreter</text>
+<line x1="238.00" y1="84.00" x2="256.00" y2="84.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="266.00,84.00 256.00,87.00 256.00,81.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="266" y="63" width="112" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="322" y="85" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Binary (.so)</text>
+<rect x="406" y="35" width="70" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="441" y="57" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">CPU</text>
+<rect x="406" y="91" width="70" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="441" y="113" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">GPU</text>
+<path d="M 378 84 C 387.00 84, 387.00 56, 396.00 56" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="406.00,56.00 396.00,53.00 396.00,59.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 378 84 C 387.00 84, 387.00 112, 396.00 112" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="406.00,112.00 396.00,109.00 396.00,115.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>
+    </div>
+    <div class="title">Figure 46. Python and C++ runtime.</div>
+</div>
+                    
+                </div>
+
+                
+                <div class="nav-footer">
+                    
+                    <div class="nav-link prev-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"></path>
+                        </svg>
+                        <a href="../../frameworks/what-is-a-framework/">What is a framework?</a>
+                    </div>
+                    
+
+                    
+                    <div class="nav-link next-link">
+                        <a href="../../frameworks/backpropagation/">Backpropagation</a>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6"></path>
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+
+                <footer class="site-footer">
+                    <p>&copy; <span id="copyright-year"></span> The Author.</p>
+                    <p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                            rel="noopener noreferrer">CC BY-NC-ND 4.0</a></p>
+                </footer>
+            </div>
+        </div><!-- /.page-content -->
+    </div><!-- /.main-wrapper -->
+    <!-- External scripts -->
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toc-fold.js"></script>
+    <script src="/js/scroll.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/copyright.js"></script>
+    <!-- Initial sidebar state is now applied. Wait two animation frames so
+         the browser actually paints that corrected state before we
+         re-enable transitions -- removing the class synchronously here
+         would batch into the same style pass and animate it anyway. -->
+    <script>
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                document.documentElement.classList.remove('preload');
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

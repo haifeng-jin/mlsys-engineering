@@ -1,0 +1,14 @@
+<svg viewBox="0 0 550 98" width="550" height="98" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(51.0,-7.0)">
+<line x1="56" y1="56" x2="392" y2="56" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="56" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="140" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="224" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="308" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="392" cy="56" r="7"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Large</text>
+<text x="56" y="91" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Slow</text>
+<text x="392" y="21" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Small</text>
+<text x="392" y="91" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Fast</text>
+</g>
+</svg>

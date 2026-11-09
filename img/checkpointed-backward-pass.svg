@@ -1,0 +1,58 @@
+<svg viewBox="0 0 550 245" width="550" height="245" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(73.5,-9)">
+<circle cx="0" cy="20" r="6"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="13" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Activation</text>
+<circle cx="104" cy="20" r="6"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="117" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Gradient</text>
+<rect x="192" y="14" width="19" height="12" rx="6" ry="6" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="218" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Forward op</text>
+<rect x="309" y="14" width="19" height="12" rx="6" ry="6" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="335" y="21" font-size="14" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Backward op</text>
+<rect x="42" y="89" width="114" height="60" rx="11" ry="11" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="99" y="73" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Saved activations</text>
+<circle cx="77" cy="119" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="77" y="120" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x0</text>
+<circle cx="121" cy="119" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="121" y="120" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x2</text>
+<rect x="107" y="163" width="67" height="28" rx="14" ry="14" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="140" y="178" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op1</text>
+<line x1="174.00" y1="177.00" x2="180.00" y2="177.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="190.00,177.00 180.00,180.00 180.00,174.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="204" cy="177" r="14"  fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="204" y="178" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x1</text>
+<line x1="77.00" y1="177.00" x2="97.00" y2="177.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="107.00,177.00 97.00,180.00 97.00,174.00" fill="var(--text-main, black)" stroke="none" />
+<circle cx="14" cy="235" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="14" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x0</text>
+<circle cx="141" cy="235" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="141" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x1</text>
+<circle cx="268" cy="235" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="268" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x2</text>
+<circle cx="395" cy="235" r="14"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="395" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x3</text>
+<rect x="44" y="221" width="67" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="77" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op1</text>
+<line x1="127.00" y1="235.00" x2="121.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="111.00,235.00 121.00,232.00 121.00,238.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="44.00" y1="235.00" x2="38.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="28.00,235.00 38.00,232.00 38.00,238.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="171" y="221" width="67" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="204" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op2</text>
+<line x1="254.00" y1="235.00" x2="248.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="238.00,235.00 248.00,232.00 248.00,238.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="171.00" y1="235.00" x2="165.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="155.00,235.00 165.00,232.00 165.00,238.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="298" y="221" width="67" height="28" rx="14" ry="14" fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="331" y="236" font-size="18" fill="var(--bg-body, white)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">op3</text>
+<line x1="381.00" y1="235.00" x2="375.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="365.00,235.00 375.00,232.00 375.00,238.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="298.00" y1="235.00" x2="292.00" y2="235.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="282.00,235.00 292.00,232.00 292.00,238.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="77.00" y1="133.00" x2="77.00" y2="211.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="77.00,221.00 74.00,211.00 80.00,211.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="204.00" y1="191.00" x2="204.00" y2="211.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="204.00,221.00 201.00,211.00 207.00,211.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 135 119 L 317.00 119 A 14.00 14.00 0 0 1 331.00 133.00 L 331.00 211.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="331.00,221.00 328.00,211.00 334.00,211.00" fill="var(--text-main, black)" stroke="none" />
+</g>
+</svg>

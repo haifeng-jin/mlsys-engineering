@@ -1,0 +1,78 @@
+<svg viewBox="0 0 550 501" width="550" height="501" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(2.3500000000000227,-9.0)">
+<text x="168" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">sign</text>
+<text x="237" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">exponent</text>
+<text x="352" y="23" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">mantissa</text>
+<rect x="145" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="191" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="283" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="329" y="51" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="74" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="389" y="74" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+1.2 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<rect x="145" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="191" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="283" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="329" y="153" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="176" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="389" y="176" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(−2.3 × 10<tspan baseline-shift="super" font-size="12">2</tspan>)</text>
+<line x1="191" y1="51" x2="191" y2="505" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="283" y1="51" x2="283" y2="505" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<line x1="237.00" y1="217.00" x2="237.00" y2="227.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="237.00,237.00 234.00,227.00 240.00,227.00" fill="var(--text-main, black)" stroke="none" />
+<text x="5" y="227" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1. Align exponent</text>
+<rect x="145" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">−</text>
+<rect x="191" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="283" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="329" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="375" y="255" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="398" y="278" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="435" y="278" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(−0.23 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<line x1="352.00" y1="319.00" x2="352.00" y2="329.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="352.00,339.00 349.00,329.00 355.00,329.00" fill="var(--text-main, black)" stroke="none" />
+<text x="5" y="329" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">2. Add mantissas</text>
+<text x="366" y="329" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1.20 − 0.23 = 0.97</text>
+<rect x="145" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="191" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="283" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="329" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="375" y="357" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="398" y="380" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<text x="435" y="380" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+0.97 × 10<tspan baseline-shift="super" font-size="12">3</tspan>)</text>
+<line x1="352.00" y1="421.00" x2="352.00" y2="431.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="352.00,441.00 349.00,431.00 355.00,431.00" fill="var(--text-main, black)" stroke="none" />
+<text x="5" y="431" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">3. Normalize</text>
+<rect x="145" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="168" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="191" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="214" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="237" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="260" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="283" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="306" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="329" y="459" width="46" height="46" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="352" y="482" font-size="24" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">7</text>
+<text x="389" y="482" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">(+9.7 × 10<tspan baseline-shift="super" font-size="12">2</tspan>)</text>
+</g>
+</svg>

@@ -1,0 +1,21 @@
+<svg viewBox="0 0 550 322" width="550" height="322" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(71.5,-28.0)">
+<polygon points="0,322 147,98 147,322" fill="var(--text-muted, gray)" stroke="none" stroke-width="0" />
+<polygon points="147,98 420,98 420,322 147,322" fill="var(--text-light, darkgray)" stroke="none" stroke-width="0" />
+<line x1="0.00" y1="322.00" x2="410.00" y2="322.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="420.00,322.00 410.00,325.00 410.00,319.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="0.00" y1="322.00" x2="0.00" y2="80.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="0.00,70.00 3.00,80.00 -3.00,80.00" fill="var(--text-main, black)" stroke="none" />
+<text x="210" y="336" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Arithmetic Intensity (FLOPs/byte)</text>
+<text x="-14" y="182" transform="rotate(-90 -14 182)" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Performance (FLOPs/s)</text>
+<line x1="0" y1="322" x2="147" y2="98" stroke="var(--text-main, black)" stroke-width="2" />
+<line x1="147" y1="98" x2="420" y2="98" stroke="var(--text-main, black)" stroke-width="2" />
+<circle cx="147" cy="98" r="2"  fill="var(--text-main, black)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="418" y="84" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">Peak Performance (FLOPs/s)</text>
+<text x="73" y="196" transform="rotate(-56.72511201516508 73 196)" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Memory Bandwidth (bytes/s)</text>
+<circle cx="84" cy="42" r="8"  fill="var(--text-muted, gray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="99" y="42" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Memory-bound</text>
+<circle cx="252" cy="42" r="8"  fill="var(--text-light, darkgray)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="267" y="42" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">Compute-bound</text>
+</g>
+</svg>

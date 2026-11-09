@@ -1,0 +1,16 @@
+<svg viewBox="0 0 550 85" width="550" height="85" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(47.5,-3.5)">
+<rect x="0" y="30" width="105" height="30" rx="7" ry="7" fill="none" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4 4" />
+<text x="9" y="16" font-size="15" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">a = 1 + 2</text>
+<text x="9" y="46" font-size="15" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">b = a * 3</text>
+<text x="9" y="76" font-size="15" fill="var(--text-main, black)" font-family="var(--font-code), monospace" text-anchor="start" dominant-baseline="middle">c = b - 1</text>
+<line x1="105.00" y1="45.00" x2="137.00" y2="45.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="147.00,45.00 137.00,48.00 137.00,42.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="147" y="24" width="182" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="238" y="46" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Python Interpreter</text>
+<line x1="329.00" y1="45.00" x2="361.00" y2="45.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="371.00,45.00 361.00,48.00 361.00,42.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="371" y="24" width="84" height="42" rx="7" ry="7" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="413" y="46" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">CPU</text>
+</g>
+</svg>

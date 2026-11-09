@@ -1,0 +1,31 @@
+<svg viewBox="0 0 550 248" width="550" height="248" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(47.29999999999999,-23)">
+<rect x="28" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="70" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Main</text>
+<line x1="70" y1="56" x2="70" y2="266" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="196" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="238" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Task 1</text>
+<line x1="238" y1="56" x2="238" y2="266" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<rect x="364" y="28" width="84" height="28" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="406" y="45" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Task 2</text>
+<line x1="406" y1="56" x2="406" y2="266" stroke="var(--text-main, black)" stroke-width="2" stroke-dasharray="4" />
+<line x1="70.00" y1="98.00" x2="221.00" y2="98.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="231.00,98.00 221.00,101.00 221.00,95.00" fill="var(--text-main, black)" stroke="none" />
+<text x="154" y="86" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">task_one()</text>
+<rect x="231" y="98" width="14" height="126" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="252" y="161" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1s</text>
+<line x1="70.00" y1="112.00" x2="389.00" y2="112.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="399.00,112.00 389.00,115.00 389.00,109.00" fill="var(--text-main, black)" stroke="none" />
+<text x="322" y="100" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">task_two()</text>
+<rect x="399" y="112" width="14" height="126" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="420" y="175" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="start" dominant-baseline="middle">1s</text>
+<rect x="63" y="112" width="14" height="63" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="143" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">0.5s</text>
+<line x1="231.00" y1="224.00" x2="87.00" y2="224.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" stroke-dasharray="4" />
+<polygon points="77.00,224.00 87.00,221.00 87.00,227.00" fill="var(--text-main, black)" stroke="none" />
+<line x1="399.00" y1="238.00" x2="87.00" y2="238.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" stroke-dasharray="4" />
+<polygon points="77.00,238.00 87.00,235.00 87.00,241.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="63" y="175" width="14" height="63" fill="var(--bg-body, white)" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="56" y="206" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="end" dominant-baseline="middle">gather</text>
+</g>
+</svg>

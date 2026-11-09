@@ -1,0 +1,24 @@
+<svg viewBox="0 0 550 244" width="550" height="244" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(45.5,-23)">
+<circle cx="142" cy="46" r="18"  fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="142" y="46" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">x</text>
+<circle cx="258" cy="46" r="18"  fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="258" y="46" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">w</text>
+<path d="M 142 64 C 142 91.50, 200 91.50, 200 119.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="200.00,127.00 197.00,119.00 203.00,119.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 258 64 C 258 91.50, 200 91.50, 200 119.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="200.00,127.00 197.00,119.00 203.00,119.00" fill="var(--text-main, black)" stroke="none" />
+<text x="200" y="86" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">@</text>
+<circle cx="200" cy="145" r="18"  fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="200" y="145" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">z</text>
+<circle cx="317" cy="145" r="18"  fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="317" y="145" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">b</text>
+<path d="M 200 163 C 200 190.50, 258 190.50, 258 218.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="258.00,226.00 255.00,218.00 261.00,218.00" fill="var(--text-main, black)" stroke="none" />
+<path d="M 317 163 C 317 190.50, 258 190.50, 258 218.00" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<polygon points="258.00,226.00 255.00,218.00 261.00,218.00" fill="var(--text-main, black)" stroke="none" />
+<text x="258" y="185" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">+</text>
+<circle cx="258" cy="244" r="18"  fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="258" y="244" font-size="18" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">y</text>
+</g>
+</svg>

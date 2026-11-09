@@ -1,0 +1,22 @@
+<svg viewBox="0 0 550 48" width="550" height="48" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(5.0,-1)">
+<rect x="10" y="6" width="96" height="38" rx="19" ry="19" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="58" y="25" font-size="16" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Source files</text>
+<line x1="106.00" y1="25.00" x2="120.00" y2="25.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="128.00,25.00 120.00,28.00 120.00,22.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="128" y="6" width="78" height="38" rx="6" ry="6" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="167" y="25" font-size="16" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Frontend</text>
+<line x1="206.00" y1="25.00" x2="220.00" y2="25.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="228.00,25.00 220.00,28.00 220.00,22.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="228" y="6" width="78" height="38" rx="6" ry="6" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="267" y="25" font-size="16" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Optimizer</text>
+<line x1="306.00" y1="25.00" x2="320.00" y2="25.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="328.00,25.00 320.00,28.00 320.00,22.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="328" y="6" width="78" height="38" rx="6" ry="6" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="367" y="25" font-size="16" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Backend</text>
+<line x1="406.00" y1="25.00" x2="420.00" y2="25.00" stroke="var(--text-main, black)" stroke-width="2" stroke-linecap="butt" />
+<polygon points="428.00,25.00 420.00,28.00 420.00,22.00" fill="var(--text-main, black)" stroke="none" />
+<rect x="428" y="6" width="102" height="38" rx="19" ry="19" fill="none" stroke="var(--text-main, black)" stroke-width="2" />
+<text x="479" y="25" font-size="16" fill="var(--text-main, black)" font-family="var(--font-main), sans-serif" text-anchor="middle" dominant-baseline="middle">Machine code</text>
+</g>
+</svg>
